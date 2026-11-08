@@ -1,0 +1,2 @@
+/usr/bin/ar qc libflinkcpp.a CMakeFiles/flinkcpp.dir/src/flink/runtime/util/MathUtils.cpp.o CMakeFiles/flinkcpp.dir/src/flink/runtime/util/DataInputDeserializer.cpp.o CMakeFiles/flinkcpp.dir/src/flink/runtime/util/DataOutputSerializer.cpp.o CMakeFiles/flinkcpp.dir/src/flink/runtime/state/memory/MemoryStateBackend.cpp.o CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.o CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.o
+/usr/bin/ranlib libflinkcpp.a

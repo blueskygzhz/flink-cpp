@@ -1,0 +1,1 @@
+/usr/local/bin/c++ -O3 -DNDEBUG CMakeFiles/operator_test.dir/test/operator_test.cpp.o -o operator_test  libflinkcpp.a -lpthread 

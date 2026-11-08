@@ -1,0 +1,1 @@
+/usr/local/bin/c++ -O3 -DNDEBUG CMakeFiles/state_backend_test.dir/test/state_backend_test.cpp.o -o state_backend_test  libflinkcpp.a -lpthread 

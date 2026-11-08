@@ -58,5 +58,20 @@ std::ostream& operator<<(std::ostream& os, const Tuple2<T0, T1>& value) {
 }  // namespace tuple
 }  // namespace java
 }  // namespace api
+
+namespace util {
+// java.lang.Tuple2.hashCode():
+//   result = f0.hashCode(); result = 31 * result + f1.hashCode()
+// keyBy(Tuple2) 要与 Java 版分到同一通道，必须复刻这个组合方式。
+template <class T0, class T1>
+struct JavaHashCode<flink::api::java::tuple::Tuple2<T0, T1> > {
+  static int32_t apply(const flink::api::java::tuple::Tuple2<T0, T1>& value) {
+    uint32_t result = static_cast<uint32_t>(JavaHashCode<T0>::apply(value.f0));
+    result = result * 31u +
+             static_cast<uint32_t>(JavaHashCode<T1>::apply(value.f1));
+    return static_cast<int32_t>(result);
+  }
+};
+}  // namespace util
 }  // namespace flink
 #endif  // FLINK_API_JAVA_TUPLE_TUPLE2_H

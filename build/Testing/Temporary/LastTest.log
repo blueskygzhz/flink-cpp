@@ -1,98 +1,82 @@
-Start testing: Nov 07 22:58 CST
+Start testing: Nov 08 15:42 CST
 ----------------------------------------------------------
-1/3 Testing: wordcount
-1/3 Test: wordcount
-Command: "/data/bingochen/flink-cpp/build/wordcount"
+1/2 Testing: state_backend
+1/2 Test: state_backend
+Command: "/data/bingochen/flink-cpp/build/state_backend_test"
 Directory: /data/bingochen/flink-cpp/build
-"wordcount" start time: Nov 07 22:58 CST
+"state_backend" start time: Nov 08 15:42 CST
 Output:
 ----------------------------------------------------------
-hello : 3
-flink : 3
-cpp : 3
-=== PASS (parallelism=1) ===
+ok    ValueState.value() 回落到 descriptor 默认值
+ok    换 key 后互不干扰
+ok    切回原 key 读到原值
+ok    同名 descriptor 复用同一状态对象
+ok    clear() 只清当前 key
+ok    clear() 没伤到别的 key
+ok    (key a, window [0,5)) 攒到 2 个元素
+ok    同 key 不同 namespace 互相隔离
+ok    同 namespace 不同 key 互相隔离
+ok    窗口触发后 clear() 清空该 (key, window)
+ok    clear() 没动别的 key
+ok    两个状态各出一份快照
+ok    快照按 state 名归档
+ok    ValueState 恢复 (key a)
+ok    ListState 连 namespace 一起恢复
+ok    ValueState 恢复 (key b)
+ok    dispose() 之后状态清空
+
+ALL PASSED
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"wordcount" end time: Nov 07 22:58 CST
-"wordcount" time elapsed: 00:00:00
+"state_backend" end time: Nov 08 15:42 CST
+"state_backend" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-2/3 Testing: event_time_wordcount
-2/3 Test: event_time_wordcount
-Command: "/data/bingochen/flink-cpp/build/event_time_wordcount"
+2/2 Testing: operators
+2/2 Test: operators
+Command: "/data/bingochen/flink-cpp/build/operator_test"
 Directory: /data/bingochen/flink-cpp/build
-"event_time_wordcount" start time: Nov 07 22:58 CST
+"operators" start time: Nov 08 15:42 CST
 Output:
 ----------------------------------------------------------
-# assigner=Tumbling(5000), evictor=none
-A [0,5000) = 2
-A [0,5000) = 1
-A [5000,10000) = 1
-A [10000,15000) = 1
+ok    StreamTask 走完 init/cleanup
+ok    StreamMap 逐条输出
+ok    MapFunction 被调用
+ok    replace() 保留输入记录的时间戳
+ok    无时间戳的记录仍然无时间戳
+ok    processWatermark 转发水位线
+ok    releaseOutputs 关掉了输出
+ok    StreamFilter 只放过满足条件的记录
+ok    StreamFilter 原样转发记录（含时间戳）
+ok    StreamFlatMap 一进多出
+ok    FlatMapFunction 的 Collector 生效
+ok    TimestampedCollector 让所有输出继承输入时间戳
+ok    StreamGroupedReduce 按 key 做滚动聚合
+ok    首个元素原样输出（1.0 的 currentValue == null 分支）
+ok    StreamGroupedReduce 沿用默认 HEAD 链接策略
+ok    keyed state 从 checkpoint 恢复后继续累加
+ok    StreamGroupedFold 首元素用 initialValue，之后接着折叠
+ok    AbstractUdfStreamOperator.open 开了 UDF
+ok    AbstractUdfStreamOperator.close 关了 UDF
+ok    UDF 被正确调用
+ok    triggerCheckpoint 先广播 CheckpointBarrier
+ok    有状态时走 acknowledgeCheckpoint(id, state)
+ok    StreamTaskState 带上了 functionState
+ok    functionState 是 checkpoint 那一刻的 UDF 状态
+ok    Checkpointed.restoreState 把 UDF 状态还回去了
+ok    setKeyContextElement1 让状态按 key 分开累加
+ok    registerTimer 的回调被触发了一次
+ok    回调收到的是注册时指定的绝对时间戳
+
+ALL PASSED
 <end of output>
-Test time =   0.00 sec
+Test time =   0.15 sec
 ----------------------------------------------------------
 Test Passed.
-"event_time_wordcount" end time: Nov 07 22:58 CST
-"event_time_wordcount" time elapsed: 00:00:00
+"operators" end time: Nov 08 15:42 CST
+"operators" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-3/3 Testing: checkpoint_restore
-3/3 Test: checkpoint_restore
-Command: "/data/bingochen/flink-cpp/build/checkpoint_restore"
-Directory: /data/bingochen/flink-cpp/build
-"checkpoint_restore" start time: Nov 07 22:58 CST
-Output:
-----------------------------------------------------------
-=== Run A: baseline (no failure) ===
-    [source] snapshot ckpt=1 nextOffset=4
-    [source] snapshot ckpt=2 nextOffset=8
-    [source] snapshot ckpt=3 nextOffset=12
-    [coordinator] checkpoint 1 COMPLETED
-    [sink] even=6
-    [sink] odd=9
-    [coordinator] checkpoint 2 COMPLETED
-    [sink] even=24
-    [sink] odd=27
-    [coordinator] checkpoint 3 COMPLETED
-=== Run B1: fail at offset 7 ===
-    [source] snapshot ckpt=1 nextOffset=4
-    [coordinator] checkpoint 1 COMPLETED
-    [sink] even=6
-    [sink] odd=9
-    [job] FAILED: simulated TaskManager failure at offset 7
-    [job] success=false, latest completed ckpt=1
-=== Run B2: restore from ckpt 1 ===
-    [source] RESTORED nextOffset=4
-    [source] snapshot ckpt=2 nextOffset=8
-    [source] snapshot ckpt=3 nextOffset=12
-    [sink] even=6
-    [sink] odd=9
-    [coordinator] checkpoint 2 COMPLETED
-    [sink] even=24
-    [sink] odd=27
-    [coordinator] checkpoint 3 COMPLETED
-=== Verification ===
-  A consumed       : 0,1,2,3,4,5,6,7,8,9,10,11
-  B consumed(sort) : 0,1,2,3,4,4,5,5,6,6,7,8,9,10,11
-  [1] no record lost across failure: PASS
-  [2] replay bounded to [4,7) after last checkpoint: PASS
-  A sink  : even=6 odd=9 even=24 odd=27
-  B1 sink : even=6 odd=9
-  B2 sink : even=6 odd=9 even=24 odd=27
-  [3] restored run output == baseline output: PASS
-  note: B1 在失败前已输出的 "even=6 odd=9" 会被 B2 重放一次。
-        1.0 没有 TwoPhaseCommitSinkFunction（1.4+ 才有），
-        所以端到端 exactly-once 还需要幂等或事务 sink。
-=== ALL CHECKS PASSED ===
-<end of output>
-Test time =   0.00 sec
-----------------------------------------------------------
-Test Passed.
-"checkpoint_restore" end time: Nov 07 22:58 CST
-"checkpoint_restore" time elapsed: 00:00:00
-----------------------------------------------------------
-
-End testing: Nov 07 22:58 CST
+End testing: Nov 08 15:42 CST

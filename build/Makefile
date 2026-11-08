@@ -127,115 +127,235 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named wordcount
+# Target rules for targets named flinkcpp
 
 # Build rule for target.
-wordcount: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 wordcount
-.PHONY : wordcount
+flinkcpp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 flinkcpp
+.PHONY : flinkcpp
 
 # fast build rule for target.
-wordcount/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/wordcount.dir/build.make CMakeFiles/wordcount.dir/build
-.PHONY : wordcount/fast
+flinkcpp/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/build
+.PHONY : flinkcpp/fast
 
 #=============================================================================
-# Target rules for targets named event_time_wordcount
+# Target rules for targets named state_backend_test
 
 # Build rule for target.
-event_time_wordcount: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 event_time_wordcount
-.PHONY : event_time_wordcount
+state_backend_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 state_backend_test
+.PHONY : state_backend_test
 
 # fast build rule for target.
-event_time_wordcount/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/event_time_wordcount.dir/build.make CMakeFiles/event_time_wordcount.dir/build
-.PHONY : event_time_wordcount/fast
+state_backend_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/state_backend_test.dir/build.make CMakeFiles/state_backend_test.dir/build
+.PHONY : state_backend_test/fast
 
 #=============================================================================
-# Target rules for targets named checkpoint_restore
+# Target rules for targets named operator_test
 
 # Build rule for target.
-checkpoint_restore: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 checkpoint_restore
-.PHONY : checkpoint_restore
+operator_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 operator_test
+.PHONY : operator_test
 
 # fast build rule for target.
-checkpoint_restore/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkpoint_restore.dir/build.make CMakeFiles/checkpoint_restore.dir/build
-.PHONY : checkpoint_restore/fast
+operator_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/operator_test.dir/build.make CMakeFiles/operator_test.dir/build
+.PHONY : operator_test/fast
 
-examples/checkpoint_restore.o: examples/checkpoint_restore.cpp.o
-.PHONY : examples/checkpoint_restore.o
-
-# target to build an object file
-examples/checkpoint_restore.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkpoint_restore.dir/build.make CMakeFiles/checkpoint_restore.dir/examples/checkpoint_restore.cpp.o
-.PHONY : examples/checkpoint_restore.cpp.o
-
-examples/checkpoint_restore.i: examples/checkpoint_restore.cpp.i
-.PHONY : examples/checkpoint_restore.i
-
-# target to preprocess a source file
-examples/checkpoint_restore.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkpoint_restore.dir/build.make CMakeFiles/checkpoint_restore.dir/examples/checkpoint_restore.cpp.i
-.PHONY : examples/checkpoint_restore.cpp.i
-
-examples/checkpoint_restore.s: examples/checkpoint_restore.cpp.s
-.PHONY : examples/checkpoint_restore.s
-
-# target to generate assembly for a file
-examples/checkpoint_restore.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/checkpoint_restore.dir/build.make CMakeFiles/checkpoint_restore.dir/examples/checkpoint_restore.cpp.s
-.PHONY : examples/checkpoint_restore.cpp.s
-
-examples/event_time_wordcount.o: examples/event_time_wordcount.cpp.o
-.PHONY : examples/event_time_wordcount.o
+src/flink/runtime/io/network/partition/consumer/SingleInputGate.o: src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.o
+.PHONY : src/flink/runtime/io/network/partition/consumer/SingleInputGate.o
 
 # target to build an object file
-examples/event_time_wordcount.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/event_time_wordcount.dir/build.make CMakeFiles/event_time_wordcount.dir/examples/event_time_wordcount.cpp.o
-.PHONY : examples/event_time_wordcount.cpp.o
+src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.o
+.PHONY : src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.o
 
-examples/event_time_wordcount.i: examples/event_time_wordcount.cpp.i
-.PHONY : examples/event_time_wordcount.i
+src/flink/runtime/io/network/partition/consumer/SingleInputGate.i: src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.i
+.PHONY : src/flink/runtime/io/network/partition/consumer/SingleInputGate.i
 
 # target to preprocess a source file
-examples/event_time_wordcount.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/event_time_wordcount.dir/build.make CMakeFiles/event_time_wordcount.dir/examples/event_time_wordcount.cpp.i
-.PHONY : examples/event_time_wordcount.cpp.i
+src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.i
+.PHONY : src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.i
 
-examples/event_time_wordcount.s: examples/event_time_wordcount.cpp.s
-.PHONY : examples/event_time_wordcount.s
+src/flink/runtime/io/network/partition/consumer/SingleInputGate.s: src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.s
+.PHONY : src/flink/runtime/io/network/partition/consumer/SingleInputGate.s
 
 # target to generate assembly for a file
-examples/event_time_wordcount.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/event_time_wordcount.dir/build.make CMakeFiles/event_time_wordcount.dir/examples/event_time_wordcount.cpp.s
-.PHONY : examples/event_time_wordcount.cpp.s
+src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.s
+.PHONY : src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.s
 
-examples/wordcount.o: examples/wordcount.cpp.o
-.PHONY : examples/wordcount.o
+src/flink/runtime/state/memory/MemoryStateBackend.o: src/flink/runtime/state/memory/MemoryStateBackend.cpp.o
+.PHONY : src/flink/runtime/state/memory/MemoryStateBackend.o
 
 # target to build an object file
-examples/wordcount.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/wordcount.dir/build.make CMakeFiles/wordcount.dir/examples/wordcount.cpp.o
-.PHONY : examples/wordcount.cpp.o
+src/flink/runtime/state/memory/MemoryStateBackend.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/state/memory/MemoryStateBackend.cpp.o
+.PHONY : src/flink/runtime/state/memory/MemoryStateBackend.cpp.o
 
-examples/wordcount.i: examples/wordcount.cpp.i
-.PHONY : examples/wordcount.i
+src/flink/runtime/state/memory/MemoryStateBackend.i: src/flink/runtime/state/memory/MemoryStateBackend.cpp.i
+.PHONY : src/flink/runtime/state/memory/MemoryStateBackend.i
 
 # target to preprocess a source file
-examples/wordcount.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/wordcount.dir/build.make CMakeFiles/wordcount.dir/examples/wordcount.cpp.i
-.PHONY : examples/wordcount.cpp.i
+src/flink/runtime/state/memory/MemoryStateBackend.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/state/memory/MemoryStateBackend.cpp.i
+.PHONY : src/flink/runtime/state/memory/MemoryStateBackend.cpp.i
 
-examples/wordcount.s: examples/wordcount.cpp.s
-.PHONY : examples/wordcount.s
+src/flink/runtime/state/memory/MemoryStateBackend.s: src/flink/runtime/state/memory/MemoryStateBackend.cpp.s
+.PHONY : src/flink/runtime/state/memory/MemoryStateBackend.s
 
 # target to generate assembly for a file
-examples/wordcount.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/wordcount.dir/build.make CMakeFiles/wordcount.dir/examples/wordcount.cpp.s
-.PHONY : examples/wordcount.cpp.s
+src/flink/runtime/state/memory/MemoryStateBackend.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/state/memory/MemoryStateBackend.cpp.s
+.PHONY : src/flink/runtime/state/memory/MemoryStateBackend.cpp.s
+
+src/flink/runtime/util/DataInputDeserializer.o: src/flink/runtime/util/DataInputDeserializer.cpp.o
+.PHONY : src/flink/runtime/util/DataInputDeserializer.o
+
+# target to build an object file
+src/flink/runtime/util/DataInputDeserializer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/util/DataInputDeserializer.cpp.o
+.PHONY : src/flink/runtime/util/DataInputDeserializer.cpp.o
+
+src/flink/runtime/util/DataInputDeserializer.i: src/flink/runtime/util/DataInputDeserializer.cpp.i
+.PHONY : src/flink/runtime/util/DataInputDeserializer.i
+
+# target to preprocess a source file
+src/flink/runtime/util/DataInputDeserializer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/util/DataInputDeserializer.cpp.i
+.PHONY : src/flink/runtime/util/DataInputDeserializer.cpp.i
+
+src/flink/runtime/util/DataInputDeserializer.s: src/flink/runtime/util/DataInputDeserializer.cpp.s
+.PHONY : src/flink/runtime/util/DataInputDeserializer.s
+
+# target to generate assembly for a file
+src/flink/runtime/util/DataInputDeserializer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/util/DataInputDeserializer.cpp.s
+.PHONY : src/flink/runtime/util/DataInputDeserializer.cpp.s
+
+src/flink/runtime/util/DataOutputSerializer.o: src/flink/runtime/util/DataOutputSerializer.cpp.o
+.PHONY : src/flink/runtime/util/DataOutputSerializer.o
+
+# target to build an object file
+src/flink/runtime/util/DataOutputSerializer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/util/DataOutputSerializer.cpp.o
+.PHONY : src/flink/runtime/util/DataOutputSerializer.cpp.o
+
+src/flink/runtime/util/DataOutputSerializer.i: src/flink/runtime/util/DataOutputSerializer.cpp.i
+.PHONY : src/flink/runtime/util/DataOutputSerializer.i
+
+# target to preprocess a source file
+src/flink/runtime/util/DataOutputSerializer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/util/DataOutputSerializer.cpp.i
+.PHONY : src/flink/runtime/util/DataOutputSerializer.cpp.i
+
+src/flink/runtime/util/DataOutputSerializer.s: src/flink/runtime/util/DataOutputSerializer.cpp.s
+.PHONY : src/flink/runtime/util/DataOutputSerializer.s
+
+# target to generate assembly for a file
+src/flink/runtime/util/DataOutputSerializer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/util/DataOutputSerializer.cpp.s
+.PHONY : src/flink/runtime/util/DataOutputSerializer.cpp.s
+
+src/flink/runtime/util/MathUtils.o: src/flink/runtime/util/MathUtils.cpp.o
+.PHONY : src/flink/runtime/util/MathUtils.o
+
+# target to build an object file
+src/flink/runtime/util/MathUtils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/util/MathUtils.cpp.o
+.PHONY : src/flink/runtime/util/MathUtils.cpp.o
+
+src/flink/runtime/util/MathUtils.i: src/flink/runtime/util/MathUtils.cpp.i
+.PHONY : src/flink/runtime/util/MathUtils.i
+
+# target to preprocess a source file
+src/flink/runtime/util/MathUtils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/util/MathUtils.cpp.i
+.PHONY : src/flink/runtime/util/MathUtils.cpp.i
+
+src/flink/runtime/util/MathUtils.s: src/flink/runtime/util/MathUtils.cpp.s
+.PHONY : src/flink/runtime/util/MathUtils.s
+
+# target to generate assembly for a file
+src/flink/runtime/util/MathUtils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/util/MathUtils.cpp.s
+.PHONY : src/flink/runtime/util/MathUtils.cpp.s
+
+src/flink/streaming/runtime/tasks/StreamTask.o: src/flink/streaming/runtime/tasks/StreamTask.cpp.o
+.PHONY : src/flink/streaming/runtime/tasks/StreamTask.o
+
+# target to build an object file
+src/flink/streaming/runtime/tasks/StreamTask.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.o
+.PHONY : src/flink/streaming/runtime/tasks/StreamTask.cpp.o
+
+src/flink/streaming/runtime/tasks/StreamTask.i: src/flink/streaming/runtime/tasks/StreamTask.cpp.i
+.PHONY : src/flink/streaming/runtime/tasks/StreamTask.i
+
+# target to preprocess a source file
+src/flink/streaming/runtime/tasks/StreamTask.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.i
+.PHONY : src/flink/streaming/runtime/tasks/StreamTask.cpp.i
+
+src/flink/streaming/runtime/tasks/StreamTask.s: src/flink/streaming/runtime/tasks/StreamTask.cpp.s
+.PHONY : src/flink/streaming/runtime/tasks/StreamTask.s
+
+# target to generate assembly for a file
+src/flink/streaming/runtime/tasks/StreamTask.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.s
+.PHONY : src/flink/streaming/runtime/tasks/StreamTask.cpp.s
+
+test/operator_test.o: test/operator_test.cpp.o
+.PHONY : test/operator_test.o
+
+# target to build an object file
+test/operator_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/operator_test.dir/build.make CMakeFiles/operator_test.dir/test/operator_test.cpp.o
+.PHONY : test/operator_test.cpp.o
+
+test/operator_test.i: test/operator_test.cpp.i
+.PHONY : test/operator_test.i
+
+# target to preprocess a source file
+test/operator_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/operator_test.dir/build.make CMakeFiles/operator_test.dir/test/operator_test.cpp.i
+.PHONY : test/operator_test.cpp.i
+
+test/operator_test.s: test/operator_test.cpp.s
+.PHONY : test/operator_test.s
+
+# target to generate assembly for a file
+test/operator_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/operator_test.dir/build.make CMakeFiles/operator_test.dir/test/operator_test.cpp.s
+.PHONY : test/operator_test.cpp.s
+
+test/state_backend_test.o: test/state_backend_test.cpp.o
+.PHONY : test/state_backend_test.o
+
+# target to build an object file
+test/state_backend_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/state_backend_test.dir/build.make CMakeFiles/state_backend_test.dir/test/state_backend_test.cpp.o
+.PHONY : test/state_backend_test.cpp.o
+
+test/state_backend_test.i: test/state_backend_test.cpp.i
+.PHONY : test/state_backend_test.i
+
+# target to preprocess a source file
+test/state_backend_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/state_backend_test.dir/build.make CMakeFiles/state_backend_test.dir/test/state_backend_test.cpp.i
+.PHONY : test/state_backend_test.cpp.i
+
+test/state_backend_test.s: test/state_backend_test.cpp.s
+.PHONY : test/state_backend_test.s
+
+# target to generate assembly for a file
+test/state_backend_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/state_backend_test.dir/build.make CMakeFiles/state_backend_test.dir/test/state_backend_test.cpp.s
+.PHONY : test/state_backend_test.cpp.s
 
 # Help Target
 help:
@@ -246,18 +366,33 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... checkpoint_restore"
-	@echo "... event_time_wordcount"
-	@echo "... wordcount"
-	@echo "... examples/checkpoint_restore.o"
-	@echo "... examples/checkpoint_restore.i"
-	@echo "... examples/checkpoint_restore.s"
-	@echo "... examples/event_time_wordcount.o"
-	@echo "... examples/event_time_wordcount.i"
-	@echo "... examples/event_time_wordcount.s"
-	@echo "... examples/wordcount.o"
-	@echo "... examples/wordcount.i"
-	@echo "... examples/wordcount.s"
+	@echo "... flinkcpp"
+	@echo "... operator_test"
+	@echo "... state_backend_test"
+	@echo "... src/flink/runtime/io/network/partition/consumer/SingleInputGate.o"
+	@echo "... src/flink/runtime/io/network/partition/consumer/SingleInputGate.i"
+	@echo "... src/flink/runtime/io/network/partition/consumer/SingleInputGate.s"
+	@echo "... src/flink/runtime/state/memory/MemoryStateBackend.o"
+	@echo "... src/flink/runtime/state/memory/MemoryStateBackend.i"
+	@echo "... src/flink/runtime/state/memory/MemoryStateBackend.s"
+	@echo "... src/flink/runtime/util/DataInputDeserializer.o"
+	@echo "... src/flink/runtime/util/DataInputDeserializer.i"
+	@echo "... src/flink/runtime/util/DataInputDeserializer.s"
+	@echo "... src/flink/runtime/util/DataOutputSerializer.o"
+	@echo "... src/flink/runtime/util/DataOutputSerializer.i"
+	@echo "... src/flink/runtime/util/DataOutputSerializer.s"
+	@echo "... src/flink/runtime/util/MathUtils.o"
+	@echo "... src/flink/runtime/util/MathUtils.i"
+	@echo "... src/flink/runtime/util/MathUtils.s"
+	@echo "... src/flink/streaming/runtime/tasks/StreamTask.o"
+	@echo "... src/flink/streaming/runtime/tasks/StreamTask.i"
+	@echo "... src/flink/streaming/runtime/tasks/StreamTask.s"
+	@echo "... test/operator_test.o"
+	@echo "... test/operator_test.i"
+	@echo "... test/operator_test.s"
+	@echo "... test/state_backend_test.o"
+	@echo "... test/state_backend_test.i"
+	@echo "... test/state_backend_test.s"
 .PHONY : help
 
 
