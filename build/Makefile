@@ -178,6 +178,32 @@ io_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/io_test.dir/build.make CMakeFiles/io_test.dir/build
 .PHONY : io_test/fast
 
+#=============================================================================
+# Target rules for targets named graph_test
+
+# Build rule for target.
+graph_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 graph_test
+.PHONY : graph_test
+
+# fast build rule for target.
+graph_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph_test.dir/build.make CMakeFiles/graph_test.dir/build
+.PHONY : graph_test/fast
+
+#=============================================================================
+# Target rules for targets named stream_graph_generator_test
+
+# Build rule for target.
+stream_graph_generator_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 stream_graph_generator_test
+.PHONY : stream_graph_generator_test
+
+# fast build rule for target.
+stream_graph_generator_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stream_graph_generator_test.dir/build.make CMakeFiles/stream_graph_generator_test.dir/build
+.PHONY : stream_graph_generator_test/fast
+
 src/flink/runtime/io/network/api/writer/RecordWriter.o: src/flink/runtime/io/network/api/writer/RecordWriter.cpp.o
 .PHONY : src/flink/runtime/io/network/api/writer/RecordWriter.o
 
@@ -249,6 +275,30 @@ src/flink/runtime/io/network/partition/consumer/SingleInputGate.s: src/flink/run
 src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.s
 .PHONY : src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.s
+
+src/flink/runtime/jobgraph/JobGraph.o: src/flink/runtime/jobgraph/JobGraph.cpp.o
+.PHONY : src/flink/runtime/jobgraph/JobGraph.o
+
+# target to build an object file
+src/flink/runtime/jobgraph/JobGraph.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/jobgraph/JobGraph.cpp.o
+.PHONY : src/flink/runtime/jobgraph/JobGraph.cpp.o
+
+src/flink/runtime/jobgraph/JobGraph.i: src/flink/runtime/jobgraph/JobGraph.cpp.i
+.PHONY : src/flink/runtime/jobgraph/JobGraph.i
+
+# target to preprocess a source file
+src/flink/runtime/jobgraph/JobGraph.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/jobgraph/JobGraph.cpp.i
+.PHONY : src/flink/runtime/jobgraph/JobGraph.cpp.i
+
+src/flink/runtime/jobgraph/JobGraph.s: src/flink/runtime/jobgraph/JobGraph.cpp.s
+.PHONY : src/flink/runtime/jobgraph/JobGraph.s
+
+# target to generate assembly for a file
+src/flink/runtime/jobgraph/JobGraph.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/jobgraph/JobGraph.cpp.s
+.PHONY : src/flink/runtime/jobgraph/JobGraph.cpp.s
 
 src/flink/runtime/state/memory/MemoryStateBackend.o: src/flink/runtime/state/memory/MemoryStateBackend.cpp.o
 .PHONY : src/flink/runtime/state/memory/MemoryStateBackend.o
@@ -345,6 +395,126 @@ src/flink/runtime/util/MathUtils.s: src/flink/runtime/util/MathUtils.cpp.s
 src/flink/runtime/util/MathUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/util/MathUtils.cpp.s
 .PHONY : src/flink/runtime/util/MathUtils.cpp.s
+
+src/flink/streaming/api/graph/StreamGraph.o: src/flink/streaming/api/graph/StreamGraph.cpp.o
+.PHONY : src/flink/streaming/api/graph/StreamGraph.o
+
+# target to build an object file
+src/flink/streaming/api/graph/StreamGraph.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/api/graph/StreamGraph.cpp.o
+.PHONY : src/flink/streaming/api/graph/StreamGraph.cpp.o
+
+src/flink/streaming/api/graph/StreamGraph.i: src/flink/streaming/api/graph/StreamGraph.cpp.i
+.PHONY : src/flink/streaming/api/graph/StreamGraph.i
+
+# target to preprocess a source file
+src/flink/streaming/api/graph/StreamGraph.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/api/graph/StreamGraph.cpp.i
+.PHONY : src/flink/streaming/api/graph/StreamGraph.cpp.i
+
+src/flink/streaming/api/graph/StreamGraph.s: src/flink/streaming/api/graph/StreamGraph.cpp.s
+.PHONY : src/flink/streaming/api/graph/StreamGraph.s
+
+# target to generate assembly for a file
+src/flink/streaming/api/graph/StreamGraph.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/api/graph/StreamGraph.cpp.s
+.PHONY : src/flink/streaming/api/graph/StreamGraph.cpp.s
+
+src/flink/streaming/api/graph/StreamGraphGenerator.o: src/flink/streaming/api/graph/StreamGraphGenerator.cpp.o
+.PHONY : src/flink/streaming/api/graph/StreamGraphGenerator.o
+
+# target to build an object file
+src/flink/streaming/api/graph/StreamGraphGenerator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/api/graph/StreamGraphGenerator.cpp.o
+.PHONY : src/flink/streaming/api/graph/StreamGraphGenerator.cpp.o
+
+src/flink/streaming/api/graph/StreamGraphGenerator.i: src/flink/streaming/api/graph/StreamGraphGenerator.cpp.i
+.PHONY : src/flink/streaming/api/graph/StreamGraphGenerator.i
+
+# target to preprocess a source file
+src/flink/streaming/api/graph/StreamGraphGenerator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/api/graph/StreamGraphGenerator.cpp.i
+.PHONY : src/flink/streaming/api/graph/StreamGraphGenerator.cpp.i
+
+src/flink/streaming/api/graph/StreamGraphGenerator.s: src/flink/streaming/api/graph/StreamGraphGenerator.cpp.s
+.PHONY : src/flink/streaming/api/graph/StreamGraphGenerator.s
+
+# target to generate assembly for a file
+src/flink/streaming/api/graph/StreamGraphGenerator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/api/graph/StreamGraphGenerator.cpp.s
+.PHONY : src/flink/streaming/api/graph/StreamGraphGenerator.cpp.s
+
+src/flink/streaming/api/graph/StreamNode.o: src/flink/streaming/api/graph/StreamNode.cpp.o
+.PHONY : src/flink/streaming/api/graph/StreamNode.o
+
+# target to build an object file
+src/flink/streaming/api/graph/StreamNode.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/api/graph/StreamNode.cpp.o
+.PHONY : src/flink/streaming/api/graph/StreamNode.cpp.o
+
+src/flink/streaming/api/graph/StreamNode.i: src/flink/streaming/api/graph/StreamNode.cpp.i
+.PHONY : src/flink/streaming/api/graph/StreamNode.i
+
+# target to preprocess a source file
+src/flink/streaming/api/graph/StreamNode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/api/graph/StreamNode.cpp.i
+.PHONY : src/flink/streaming/api/graph/StreamNode.cpp.i
+
+src/flink/streaming/api/graph/StreamNode.s: src/flink/streaming/api/graph/StreamNode.cpp.s
+.PHONY : src/flink/streaming/api/graph/StreamNode.s
+
+# target to generate assembly for a file
+src/flink/streaming/api/graph/StreamNode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/api/graph/StreamNode.cpp.s
+.PHONY : src/flink/streaming/api/graph/StreamNode.cpp.s
+
+src/flink/streaming/api/graph/StreamingJobGraphGenerator.o: src/flink/streaming/api/graph/StreamingJobGraphGenerator.cpp.o
+.PHONY : src/flink/streaming/api/graph/StreamingJobGraphGenerator.o
+
+# target to build an object file
+src/flink/streaming/api/graph/StreamingJobGraphGenerator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/api/graph/StreamingJobGraphGenerator.cpp.o
+.PHONY : src/flink/streaming/api/graph/StreamingJobGraphGenerator.cpp.o
+
+src/flink/streaming/api/graph/StreamingJobGraphGenerator.i: src/flink/streaming/api/graph/StreamingJobGraphGenerator.cpp.i
+.PHONY : src/flink/streaming/api/graph/StreamingJobGraphGenerator.i
+
+# target to preprocess a source file
+src/flink/streaming/api/graph/StreamingJobGraphGenerator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/api/graph/StreamingJobGraphGenerator.cpp.i
+.PHONY : src/flink/streaming/api/graph/StreamingJobGraphGenerator.cpp.i
+
+src/flink/streaming/api/graph/StreamingJobGraphGenerator.s: src/flink/streaming/api/graph/StreamingJobGraphGenerator.cpp.s
+.PHONY : src/flink/streaming/api/graph/StreamingJobGraphGenerator.s
+
+# target to generate assembly for a file
+src/flink/streaming/api/graph/StreamingJobGraphGenerator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/api/graph/StreamingJobGraphGenerator.cpp.s
+.PHONY : src/flink/streaming/api/graph/StreamingJobGraphGenerator.cpp.s
+
+src/flink/streaming/api/transformations/StreamTransformation.o: src/flink/streaming/api/transformations/StreamTransformation.cpp.o
+.PHONY : src/flink/streaming/api/transformations/StreamTransformation.o
+
+# target to build an object file
+src/flink/streaming/api/transformations/StreamTransformation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/api/transformations/StreamTransformation.cpp.o
+.PHONY : src/flink/streaming/api/transformations/StreamTransformation.cpp.o
+
+src/flink/streaming/api/transformations/StreamTransformation.i: src/flink/streaming/api/transformations/StreamTransformation.cpp.i
+.PHONY : src/flink/streaming/api/transformations/StreamTransformation.i
+
+# target to preprocess a source file
+src/flink/streaming/api/transformations/StreamTransformation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/api/transformations/StreamTransformation.cpp.i
+.PHONY : src/flink/streaming/api/transformations/StreamTransformation.cpp.i
+
+src/flink/streaming/api/transformations/StreamTransformation.s: src/flink/streaming/api/transformations/StreamTransformation.cpp.s
+.PHONY : src/flink/streaming/api/transformations/StreamTransformation.s
+
+# target to generate assembly for a file
+src/flink/streaming/api/transformations/StreamTransformation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/api/transformations/StreamTransformation.cpp.s
+.PHONY : src/flink/streaming/api/transformations/StreamTransformation.cpp.s
 
 src/flink/streaming/runtime/io/BarrierBuffer.o: src/flink/streaming/runtime/io/BarrierBuffer.cpp.o
 .PHONY : src/flink/streaming/runtime/io/BarrierBuffer.o
@@ -466,6 +636,102 @@ src/flink/streaming/runtime/io/StreamRecordWriter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.s
 .PHONY : src/flink/streaming/runtime/io/StreamRecordWriter.cpp.s
 
+src/flink/streaming/runtime/io/StreamTwoInputProcessor.o: src/flink/streaming/runtime/io/StreamTwoInputProcessor.cpp.o
+.PHONY : src/flink/streaming/runtime/io/StreamTwoInputProcessor.o
+
+# target to build an object file
+src/flink/streaming/runtime/io/StreamTwoInputProcessor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamTwoInputProcessor.cpp.o
+.PHONY : src/flink/streaming/runtime/io/StreamTwoInputProcessor.cpp.o
+
+src/flink/streaming/runtime/io/StreamTwoInputProcessor.i: src/flink/streaming/runtime/io/StreamTwoInputProcessor.cpp.i
+.PHONY : src/flink/streaming/runtime/io/StreamTwoInputProcessor.i
+
+# target to preprocess a source file
+src/flink/streaming/runtime/io/StreamTwoInputProcessor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamTwoInputProcessor.cpp.i
+.PHONY : src/flink/streaming/runtime/io/StreamTwoInputProcessor.cpp.i
+
+src/flink/streaming/runtime/io/StreamTwoInputProcessor.s: src/flink/streaming/runtime/io/StreamTwoInputProcessor.cpp.s
+.PHONY : src/flink/streaming/runtime/io/StreamTwoInputProcessor.s
+
+# target to generate assembly for a file
+src/flink/streaming/runtime/io/StreamTwoInputProcessor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamTwoInputProcessor.cpp.s
+.PHONY : src/flink/streaming/runtime/io/StreamTwoInputProcessor.cpp.s
+
+src/flink/streaming/runtime/tasks/OneInputStreamTask.o: src/flink/streaming/runtime/tasks/OneInputStreamTask.cpp.o
+.PHONY : src/flink/streaming/runtime/tasks/OneInputStreamTask.o
+
+# target to build an object file
+src/flink/streaming/runtime/tasks/OneInputStreamTask.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/OneInputStreamTask.cpp.o
+.PHONY : src/flink/streaming/runtime/tasks/OneInputStreamTask.cpp.o
+
+src/flink/streaming/runtime/tasks/OneInputStreamTask.i: src/flink/streaming/runtime/tasks/OneInputStreamTask.cpp.i
+.PHONY : src/flink/streaming/runtime/tasks/OneInputStreamTask.i
+
+# target to preprocess a source file
+src/flink/streaming/runtime/tasks/OneInputStreamTask.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/OneInputStreamTask.cpp.i
+.PHONY : src/flink/streaming/runtime/tasks/OneInputStreamTask.cpp.i
+
+src/flink/streaming/runtime/tasks/OneInputStreamTask.s: src/flink/streaming/runtime/tasks/OneInputStreamTask.cpp.s
+.PHONY : src/flink/streaming/runtime/tasks/OneInputStreamTask.s
+
+# target to generate assembly for a file
+src/flink/streaming/runtime/tasks/OneInputStreamTask.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/OneInputStreamTask.cpp.s
+.PHONY : src/flink/streaming/runtime/tasks/OneInputStreamTask.cpp.s
+
+src/flink/streaming/runtime/tasks/OperatorChain.o: src/flink/streaming/runtime/tasks/OperatorChain.cpp.o
+.PHONY : src/flink/streaming/runtime/tasks/OperatorChain.o
+
+# target to build an object file
+src/flink/streaming/runtime/tasks/OperatorChain.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/OperatorChain.cpp.o
+.PHONY : src/flink/streaming/runtime/tasks/OperatorChain.cpp.o
+
+src/flink/streaming/runtime/tasks/OperatorChain.i: src/flink/streaming/runtime/tasks/OperatorChain.cpp.i
+.PHONY : src/flink/streaming/runtime/tasks/OperatorChain.i
+
+# target to preprocess a source file
+src/flink/streaming/runtime/tasks/OperatorChain.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/OperatorChain.cpp.i
+.PHONY : src/flink/streaming/runtime/tasks/OperatorChain.cpp.i
+
+src/flink/streaming/runtime/tasks/OperatorChain.s: src/flink/streaming/runtime/tasks/OperatorChain.cpp.s
+.PHONY : src/flink/streaming/runtime/tasks/OperatorChain.s
+
+# target to generate assembly for a file
+src/flink/streaming/runtime/tasks/OperatorChain.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/OperatorChain.cpp.s
+.PHONY : src/flink/streaming/runtime/tasks/OperatorChain.cpp.s
+
+src/flink/streaming/runtime/tasks/SourceStreamTask.o: src/flink/streaming/runtime/tasks/SourceStreamTask.cpp.o
+.PHONY : src/flink/streaming/runtime/tasks/SourceStreamTask.o
+
+# target to build an object file
+src/flink/streaming/runtime/tasks/SourceStreamTask.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/SourceStreamTask.cpp.o
+.PHONY : src/flink/streaming/runtime/tasks/SourceStreamTask.cpp.o
+
+src/flink/streaming/runtime/tasks/SourceStreamTask.i: src/flink/streaming/runtime/tasks/SourceStreamTask.cpp.i
+.PHONY : src/flink/streaming/runtime/tasks/SourceStreamTask.i
+
+# target to preprocess a source file
+src/flink/streaming/runtime/tasks/SourceStreamTask.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/SourceStreamTask.cpp.i
+.PHONY : src/flink/streaming/runtime/tasks/SourceStreamTask.cpp.i
+
+src/flink/streaming/runtime/tasks/SourceStreamTask.s: src/flink/streaming/runtime/tasks/SourceStreamTask.cpp.s
+.PHONY : src/flink/streaming/runtime/tasks/SourceStreamTask.s
+
+# target to generate assembly for a file
+src/flink/streaming/runtime/tasks/SourceStreamTask.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/SourceStreamTask.cpp.s
+.PHONY : src/flink/streaming/runtime/tasks/SourceStreamTask.cpp.s
+
 src/flink/streaming/runtime/tasks/StreamTask.o: src/flink/streaming/runtime/tasks/StreamTask.cpp.o
 .PHONY : src/flink/streaming/runtime/tasks/StreamTask.o
 
@@ -489,6 +755,54 @@ src/flink/streaming/runtime/tasks/StreamTask.s: src/flink/streaming/runtime/task
 src/flink/streaming/runtime/tasks/StreamTask.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.s
 .PHONY : src/flink/streaming/runtime/tasks/StreamTask.cpp.s
+
+src/flink/streaming/runtime/tasks/TwoInputStreamTask.o: src/flink/streaming/runtime/tasks/TwoInputStreamTask.cpp.o
+.PHONY : src/flink/streaming/runtime/tasks/TwoInputStreamTask.o
+
+# target to build an object file
+src/flink/streaming/runtime/tasks/TwoInputStreamTask.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/TwoInputStreamTask.cpp.o
+.PHONY : src/flink/streaming/runtime/tasks/TwoInputStreamTask.cpp.o
+
+src/flink/streaming/runtime/tasks/TwoInputStreamTask.i: src/flink/streaming/runtime/tasks/TwoInputStreamTask.cpp.i
+.PHONY : src/flink/streaming/runtime/tasks/TwoInputStreamTask.i
+
+# target to preprocess a source file
+src/flink/streaming/runtime/tasks/TwoInputStreamTask.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/TwoInputStreamTask.cpp.i
+.PHONY : src/flink/streaming/runtime/tasks/TwoInputStreamTask.cpp.i
+
+src/flink/streaming/runtime/tasks/TwoInputStreamTask.s: src/flink/streaming/runtime/tasks/TwoInputStreamTask.cpp.s
+.PHONY : src/flink/streaming/runtime/tasks/TwoInputStreamTask.s
+
+# target to generate assembly for a file
+src/flink/streaming/runtime/tasks/TwoInputStreamTask.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/TwoInputStreamTask.cpp.s
+.PHONY : src/flink/streaming/runtime/tasks/TwoInputStreamTask.cpp.s
+
+test/graph_test.o: test/graph_test.cpp.o
+.PHONY : test/graph_test.o
+
+# target to build an object file
+test/graph_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph_test.dir/build.make CMakeFiles/graph_test.dir/test/graph_test.cpp.o
+.PHONY : test/graph_test.cpp.o
+
+test/graph_test.i: test/graph_test.cpp.i
+.PHONY : test/graph_test.i
+
+# target to preprocess a source file
+test/graph_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph_test.dir/build.make CMakeFiles/graph_test.dir/test/graph_test.cpp.i
+.PHONY : test/graph_test.cpp.i
+
+test/graph_test.s: test/graph_test.cpp.s
+.PHONY : test/graph_test.s
+
+# target to generate assembly for a file
+test/graph_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/graph_test.dir/build.make CMakeFiles/graph_test.dir/test/graph_test.cpp.s
+.PHONY : test/graph_test.cpp.s
 
 test/io_test.o: test/io_test.cpp.o
 .PHONY : test/io_test.o
@@ -562,6 +876,30 @@ test/state_backend_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/state_backend_test.dir/build.make CMakeFiles/state_backend_test.dir/test/state_backend_test.cpp.s
 .PHONY : test/state_backend_test.cpp.s
 
+test/stream_graph_generator_test.o: test/stream_graph_generator_test.cpp.o
+.PHONY : test/stream_graph_generator_test.o
+
+# target to build an object file
+test/stream_graph_generator_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stream_graph_generator_test.dir/build.make CMakeFiles/stream_graph_generator_test.dir/test/stream_graph_generator_test.cpp.o
+.PHONY : test/stream_graph_generator_test.cpp.o
+
+test/stream_graph_generator_test.i: test/stream_graph_generator_test.cpp.i
+.PHONY : test/stream_graph_generator_test.i
+
+# target to preprocess a source file
+test/stream_graph_generator_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stream_graph_generator_test.dir/build.make CMakeFiles/stream_graph_generator_test.dir/test/stream_graph_generator_test.cpp.i
+.PHONY : test/stream_graph_generator_test.cpp.i
+
+test/stream_graph_generator_test.s: test/stream_graph_generator_test.cpp.s
+.PHONY : test/stream_graph_generator_test.s
+
+# target to generate assembly for a file
+test/stream_graph_generator_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/stream_graph_generator_test.dir/build.make CMakeFiles/stream_graph_generator_test.dir/test/stream_graph_generator_test.cpp.s
+.PHONY : test/stream_graph_generator_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -572,9 +910,11 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... flinkcpp"
+	@echo "... graph_test"
 	@echo "... io_test"
 	@echo "... operator_test"
 	@echo "... state_backend_test"
+	@echo "... stream_graph_generator_test"
 	@echo "... src/flink/runtime/io/network/api/writer/RecordWriter.o"
 	@echo "... src/flink/runtime/io/network/api/writer/RecordWriter.i"
 	@echo "... src/flink/runtime/io/network/api/writer/RecordWriter.s"
@@ -584,6 +924,9 @@ help:
 	@echo "... src/flink/runtime/io/network/partition/consumer/SingleInputGate.o"
 	@echo "... src/flink/runtime/io/network/partition/consumer/SingleInputGate.i"
 	@echo "... src/flink/runtime/io/network/partition/consumer/SingleInputGate.s"
+	@echo "... src/flink/runtime/jobgraph/JobGraph.o"
+	@echo "... src/flink/runtime/jobgraph/JobGraph.i"
+	@echo "... src/flink/runtime/jobgraph/JobGraph.s"
 	@echo "... src/flink/runtime/state/memory/MemoryStateBackend.o"
 	@echo "... src/flink/runtime/state/memory/MemoryStateBackend.i"
 	@echo "... src/flink/runtime/state/memory/MemoryStateBackend.s"
@@ -596,6 +939,21 @@ help:
 	@echo "... src/flink/runtime/util/MathUtils.o"
 	@echo "... src/flink/runtime/util/MathUtils.i"
 	@echo "... src/flink/runtime/util/MathUtils.s"
+	@echo "... src/flink/streaming/api/graph/StreamGraph.o"
+	@echo "... src/flink/streaming/api/graph/StreamGraph.i"
+	@echo "... src/flink/streaming/api/graph/StreamGraph.s"
+	@echo "... src/flink/streaming/api/graph/StreamGraphGenerator.o"
+	@echo "... src/flink/streaming/api/graph/StreamGraphGenerator.i"
+	@echo "... src/flink/streaming/api/graph/StreamGraphGenerator.s"
+	@echo "... src/flink/streaming/api/graph/StreamNode.o"
+	@echo "... src/flink/streaming/api/graph/StreamNode.i"
+	@echo "... src/flink/streaming/api/graph/StreamNode.s"
+	@echo "... src/flink/streaming/api/graph/StreamingJobGraphGenerator.o"
+	@echo "... src/flink/streaming/api/graph/StreamingJobGraphGenerator.i"
+	@echo "... src/flink/streaming/api/graph/StreamingJobGraphGenerator.s"
+	@echo "... src/flink/streaming/api/transformations/StreamTransformation.o"
+	@echo "... src/flink/streaming/api/transformations/StreamTransformation.i"
+	@echo "... src/flink/streaming/api/transformations/StreamTransformation.s"
 	@echo "... src/flink/streaming/runtime/io/BarrierBuffer.o"
 	@echo "... src/flink/streaming/runtime/io/BarrierBuffer.i"
 	@echo "... src/flink/streaming/runtime/io/BarrierBuffer.s"
@@ -611,9 +969,27 @@ help:
 	@echo "... src/flink/streaming/runtime/io/StreamRecordWriter.o"
 	@echo "... src/flink/streaming/runtime/io/StreamRecordWriter.i"
 	@echo "... src/flink/streaming/runtime/io/StreamRecordWriter.s"
+	@echo "... src/flink/streaming/runtime/io/StreamTwoInputProcessor.o"
+	@echo "... src/flink/streaming/runtime/io/StreamTwoInputProcessor.i"
+	@echo "... src/flink/streaming/runtime/io/StreamTwoInputProcessor.s"
+	@echo "... src/flink/streaming/runtime/tasks/OneInputStreamTask.o"
+	@echo "... src/flink/streaming/runtime/tasks/OneInputStreamTask.i"
+	@echo "... src/flink/streaming/runtime/tasks/OneInputStreamTask.s"
+	@echo "... src/flink/streaming/runtime/tasks/OperatorChain.o"
+	@echo "... src/flink/streaming/runtime/tasks/OperatorChain.i"
+	@echo "... src/flink/streaming/runtime/tasks/OperatorChain.s"
+	@echo "... src/flink/streaming/runtime/tasks/SourceStreamTask.o"
+	@echo "... src/flink/streaming/runtime/tasks/SourceStreamTask.i"
+	@echo "... src/flink/streaming/runtime/tasks/SourceStreamTask.s"
 	@echo "... src/flink/streaming/runtime/tasks/StreamTask.o"
 	@echo "... src/flink/streaming/runtime/tasks/StreamTask.i"
 	@echo "... src/flink/streaming/runtime/tasks/StreamTask.s"
+	@echo "... src/flink/streaming/runtime/tasks/TwoInputStreamTask.o"
+	@echo "... src/flink/streaming/runtime/tasks/TwoInputStreamTask.i"
+	@echo "... src/flink/streaming/runtime/tasks/TwoInputStreamTask.s"
+	@echo "... test/graph_test.o"
+	@echo "... test/graph_test.i"
+	@echo "... test/graph_test.s"
 	@echo "... test/io_test.o"
 	@echo "... test/io_test.i"
 	@echo "... test/io_test.s"
@@ -623,6 +999,9 @@ help:
 	@echo "... test/state_backend_test.o"
 	@echo "... test/state_backend_test.i"
 	@echo "... test/state_backend_test.s"
+	@echo "... test/stream_graph_generator_test.o"
+	@echo "... test/stream_graph_generator_test.i"
+	@echo "... test/stream_graph_generator_test.s"
 .PHONY : help
 
 

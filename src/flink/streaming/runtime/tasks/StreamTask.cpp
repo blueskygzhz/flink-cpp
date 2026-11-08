@@ -25,6 +25,8 @@ StreamTask::StreamTask(Environment* environment,
     : headOperator_(NULL),
       environment_(environment),
       configuration_(configuration),
+      operatorChain_(),
+      checkpointBarrierListener_(this),
       recoveryTimestamp_(0),
       isRunning_(false),
       canceled_(false),
@@ -94,7 +96,7 @@ void StreamTask::invoke() {
     // 1.0: "we need to make sure that any triggers scheduled in open() cannot
     // be executed before all operators are opened"
     {
-      std::lock_guard<std::mutex> guard(lock_);
+      std::lock_guard<std::recursive_mutex> guard(lock_);
       openAllOperators();
     }
 
@@ -111,7 +113,7 @@ void StreamTask::invoke() {
     // ... we also need to make sure that no triggers fire concurrently with
     // the close logic"
     {
-      std::lock_guard<std::mutex> guard(lock_);
+      std::lock_guard<std::recursive_mutex> guard(lock_);
       closeAllOperators();
     }
 
@@ -235,7 +237,7 @@ void StreamTask::setInitialState(const StreamTaskStateList& stateHandle,
 
 // 1.0 triggerCheckpoint(long, long)（:460）
 bool StreamTask::triggerCheckpoint(int64_t checkpointId, int64_t timestamp) {
-  std::lock_guard<std::mutex> guard(lock_);
+  std::lock_guard<std::recursive_mutex> guard(lock_);
   if (!isRunning_) {
     return false;
   }
@@ -283,7 +285,7 @@ bool StreamTask::triggerCheckpoint(int64_t checkpointId, int64_t timestamp) {
 
 // 1.0 notifyCheckpointComplete(long)（:572）
 void StreamTask::notifyCheckpointComplete(int64_t checkpointId) {
-  std::lock_guard<std::mutex> guard(lock_);
+  std::lock_guard<std::recursive_mutex> guard(lock_);
   if (!isRunning_) {
     // 1.0: "Ignoring notification of complete checkpoint for not-running task"
     return;
@@ -298,6 +300,21 @@ void StreamTask::broadcastCheckpointBarrier(int64_t checkpointId,
                                             int64_t timestamp) {
   if (operatorChain_) {
     operatorChain_->broadcastCheckpointBarrier(checkpointId, timestamp);
+  }
+}
+
+// 1.0 getCheckpointBarrierListener() 里的匿名 EventListener（:673）
+void StreamTask::CheckpointBarrierListener::onEvent(
+    const CheckpointBarrier& barrier) {
+  try {
+    task_->triggerCheckpoint(barrier.getId(), barrier.getTimestamp());
+  } catch (const std::exception& e) {
+    // 1.0: throw new RuntimeException("Error triggering a checkpoint as the
+    //      result of receiving checkpoint barrier", e)
+    throw std::runtime_error(
+        std::string("Error triggering a checkpoint as the result of receiving "
+                    "checkpoint barrier: ") +
+        e.what());
   }
 }
 
@@ -377,7 +394,7 @@ void StreamTask::timerServiceLoop() {
     // 回调期间放开 timerMutex_，但**必须持有 checkpointLock**
     timerGuard.unlock();
     {
-      std::lock_guard<std::mutex> checkpointGuard(lock_);
+      std::lock_guard<std::recursive_mutex> checkpointGuard(lock_);
       try {
         next.target->trigger(next.timestamp);
       } catch (const std::exception& e) {

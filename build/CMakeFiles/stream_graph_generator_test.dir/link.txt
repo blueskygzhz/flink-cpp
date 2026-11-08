@@ -1,0 +1,1 @@
+/usr/local/bin/c++ -O3 -DNDEBUG CMakeFiles/stream_graph_generator_test.dir/test/stream_graph_generator_test.cpp.o -o stream_graph_generator_test  libflinkcpp.a -lpthread 

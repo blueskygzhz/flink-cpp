@@ -55,7 +55,7 @@ StreamInputProcessor::StreamInputProcessor(
 
 // 1.0 processInput(OneInputStreamOperator<IN,?>, Object lock)（:130）
 bool StreamInputProcessor::processInput(OneInputStreamOperator* streamOperator,
-                                       std::mutex& lock) {
+                                       std::recursive_mutex& lock) {
   if (isFinished_) {
     return false;
   }
@@ -82,7 +82,7 @@ bool StreamInputProcessor::processInput(OneInputStreamOperator* streamOperator,
             // 1.0: 全通道最小值超过已下发值，才真正下发（保证单调不减）
             if (newMinWatermark > lastEmittedWatermark_) {
               lastEmittedWatermark_ = newMinWatermark;
-              std::lock_guard<std::mutex> guard(lock);
+              std::lock_guard<std::recursive_mutex> guard(lock);
               streamOperator->processWatermark(Watermark(lastEmittedWatermark_));
             }
           }
@@ -91,7 +91,7 @@ bool StreamInputProcessor::processInput(OneInputStreamOperator* streamOperator,
           // 1.0: "now we can do the actual processing"
           const StreamRecord& record =
               static_cast<const StreamRecord&>(*element);
-          std::lock_guard<std::mutex> guard(lock);
+          std::lock_guard<std::recursive_mutex> guard(lock);
           streamOperator->setKeyContextElement1(record);
           streamOperator->processElement(record);
           return true;

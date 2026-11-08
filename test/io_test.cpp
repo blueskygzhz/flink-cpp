@@ -737,7 +737,7 @@ void testStreamInputProcessorWatermarks() {
       gates, NULL, flink::streaming::api::CheckpointingMode::AT_LEAST_ONCE);
 
   CollectingOperator op;
-  std::mutex lock;
+  std::recursive_mutex lock;
   while (processor.processInput(&op, lock)) {
   }
   processor.cleanup();
@@ -776,7 +776,7 @@ void testStreamInputProcessorExactlyOnceBarrier() {
       gates, &handler, flink::streaming::api::CheckpointingMode::EXACTLY_ONCE);
 
   CollectingOperator op;
-  std::mutex lock;
+  std::recursive_mutex lock;
   while (processor.processInput(&op, lock)) {
   }
   processor.cleanup();
@@ -939,7 +939,7 @@ void testRecordWriterOutputEndToEnd() {
       gates, NULL, flink::streaming::api::CheckpointingMode::AT_LEAST_ONCE);
 
   CollectingOperator op;
-  std::mutex lock;
+  std::recursive_mutex lock;
   while (processor.processInput(&op, lock)) {
   }
   processor.cleanup();

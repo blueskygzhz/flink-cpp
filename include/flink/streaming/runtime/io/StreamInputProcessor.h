@@ -89,7 +89,7 @@ class StreamInputProcessor {
 
   // 1.0 processInput(OneInputStreamOperator<IN,?>, Object lock)
   // 返回 false 表示所有输入都结束了
-  bool processInput(OneInputStreamOperator* streamOperator, std::mutex& lock);
+  bool processInput(OneInputStreamOperator* streamOperator, std::recursive_mutex& lock);
 
   // 1.0 cleanup()
   void cleanup();

@@ -35,6 +35,7 @@
 #include <memory>
 #include <stdexcept>
 #include <string>
+#include <typeinfo>
 
 #include "flink/api/common/functions/util/FunctionUtils.h"
 #include "flink/runtime/state/CheckpointListener.h"
@@ -63,6 +64,13 @@ class AbstractUdfStreamOperator : public AbstractStreamOperator {
 
   // 1.0 getUserFunction()
   const std::shared_ptr<F>& getUserFunction() const { return userFunction_; }
+
+  // 见 StreamOperator.h 对这个方法的偏差说明：替代 1.0
+  // `instanceof AbstractUdfStreamOperator` +
+  // `getUserFunction().getClass().getName()`
+  std::string getUserFunctionTypeName() const override {
+    return typeid(*userFunction_).name();
+  }
 
   // ------------------------- operator life cycle -------------------------
 

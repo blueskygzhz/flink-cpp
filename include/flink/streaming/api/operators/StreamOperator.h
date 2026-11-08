@@ -100,6 +100,19 @@ class StreamOperator {
 
   virtual ChainingStrategy getChainingStrategy() const = 0;
   virtual void setChainingStrategy(ChainingStrategy strategy) = 0;
+
+  // 1.0 里没有这个方法。StreamingJobGraphGenerator.generateNodeLocalHash
+  // （StreamingJobGraphGenerator.java:739）做的是
+  //     if (node.getOperator() instanceof AbstractUdfStreamOperator) {
+  //         hasher.putString(((AbstractUdfStreamOperator<?, ?>) node
+  //             .getOperator()).getUserFunction().getClass().getName(), UTF_8);
+  //     }
+  // 【偏差】C++ 这边 AbstractUdfStreamOperator 是模板，没有可 dynamic_cast
+  // 的公共非模板基类，也没有反射取类名。于是把这个判定翻成一个虚方法：
+  // 非 UDF 算子返回空串（等价于 instanceof 为 false），
+  // AbstractUdfStreamOperator 覆写后返回 typeid(*userFunction_).name()
+  // （取的是**动态**类型，与 1.0 的 getUserFunction().getClass() 一致）
+  virtual std::string getUserFunctionTypeName() const { return std::string(); }
 };
 
 }  // namespace operators

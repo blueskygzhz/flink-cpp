@@ -25,11 +25,20 @@ set(FLINKCPP_SOURCES
   src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp
   src/flink/runtime/io/network/api/writer/RecordWriter.cpp
   src/flink/streaming/api/graph/StreamNode.cpp
+  src/flink/streaming/api/graph/StreamGraph.cpp
+  src/flink/streaming/api/graph/StreamingJobGraphGenerator.cpp
+  src/flink/streaming/api/graph/StreamGraphGenerator.cpp
+  src/flink/streaming/api/transformations/StreamTransformation.cpp
+  src/flink/runtime/jobgraph/JobGraph.cpp
   src/flink/streaming/runtime/tasks/StreamTask.cpp
   src/flink/streaming/runtime/tasks/OperatorChain.cpp
+  src/flink/streaming/runtime/tasks/OneInputStreamTask.cpp
+  src/flink/streaming/runtime/tasks/SourceStreamTask.cpp
+  src/flink/streaming/runtime/tasks/TwoInputStreamTask.cpp
   src/flink/streaming/runtime/io/BarrierBuffer.cpp
   src/flink/streaming/runtime/io/BarrierTracker.cpp
   src/flink/streaming/runtime/io/StreamInputProcessor.cpp
+  src/flink/streaming/runtime/io/StreamTwoInputProcessor.cpp
   src/flink/streaming/runtime/io/StreamRecordWriter.cpp
   src/flink/streaming/runtime/io/RecordWriterOutput.cpp
 )
@@ -52,6 +61,14 @@ add_test(NAME operators COMMAND operator_test)
 add_executable(io_test test/io_test.cpp)
 target_link_libraries(io_test PRIVATE flinkcpp)
 add_test(NAME io COMMAND io_test)
+
+add_executable(graph_test test/graph_test.cpp)
+target_link_libraries(graph_test PRIVATE flinkcpp)
+add_test(NAME graph COMMAND graph_test)
+
+add_executable(stream_graph_generator_test test/stream_graph_generator_test.cpp)
+target_link_libraries(stream_graph_generator_test PRIVATE flinkcpp)
+add_test(NAME stream_graph_generator COMMAND stream_graph_generator_test)
 
 # examples/ 下的三个程序仍是 0.1 single-header 时代的（#include
 # "flinkcpp/api.hpp"），要等 streaming 层（StreamExecutionEnvironment /

@@ -57,6 +57,11 @@
  * AsynchronousStateHandle / AsynchronousKvStateSnapshot，有的话另起线程做
  * materialize 再 acknowledge。本实现只有内存后端（同步），所以这条分支不复刻，
  * hasAsyncStates 恒为 false。
+ *
+ * 【偏差 4 —— checkpointLock 用 recursive_mutex】1.0 的 `private final Object
+ * lock` 配 synchronized，而 Java 的 synchronized 是**可重入**的，1.0 的
+ * SourceFunction 约定正依赖这一点（UDF 先锁，ctx.collect() 里再锁同一把）。
+ * 所以本实现的 lock_ 是 std::recursive_mutex；详见字段处的注释。
  */
 #ifndef FLINK_STREAMING_RUNTIME_TASKS_STREAMTASK_H
 #define FLINK_STREAMING_RUNTIME_TASKS_STREAMTASK_H
@@ -71,8 +76,10 @@
 #include <vector>
 
 #include "flink/runtime/execution/Environment.h"
+#include "flink/runtime/io/network/api/CheckpointBarrier.h"
 #include "flink/runtime/jobgraph/tasks/StatefulTask.h"
 #include "flink/runtime/state/AbstractStateBackend.h"
+#include "flink/runtime/util/event/EventListener.h"
 #include "flink/streaming/api/graph/StreamConfig.h"
 #include "flink/streaming/api/operators/Output.h"
 #include "flink/streaming/api/operators/StreamOperator.h"
@@ -115,7 +122,7 @@ class StreamTask : public flink::runtime::jobgraph::tasks::StatefulTask {
   std::string getName() const;
 
   // 1.0 getCheckpointLock()：返回那个 `private final Object lock`
-  std::mutex& getCheckpointLock() { return lock_; }
+  std::recursive_mutex& getCheckpointLock() { return lock_; }
 
   StreamConfig& getConfiguration() { return configuration_; }
   Environment* getEnvironment() const { return environment_; }
@@ -163,10 +170,31 @@ class StreamTask : public flink::runtime::jobgraph::tasks::StatefulTask {
   // 1.0 operatorChain.broadcastCheckpointBarrier(checkpointId, timestamp)
   void broadcastCheckpointBarrier(int64_t checkpointId, int64_t timestamp);
 
+  // 1.0 getCheckpointBarrierListener()（StreamTask.java:673）：返回一个
+  // EventListener<CheckpointBarrier>，收到屏障就 triggerCheckpoint，失败则
+  // 「Error triggering a checkpoint as the result of receiving checkpoint
+  //   barrier」。1.0 是匿名内部类，C++ 用一个持有 StreamTask* 的嵌套类。
+  typedef flink::runtime::io::network::api::CheckpointBarrier CheckpointBarrier;
+  typedef flink::runtime::util::event::EventListener<CheckpointBarrier>
+      CheckpointEventListener;
+  CheckpointEventListener* getCheckpointBarrierListener() {
+    return &checkpointBarrierListener_;
+  }
+
   // 1.0 的 headOperator 字段
   StreamOperator* headOperator_;
 
  private:
+  // 1.0 getCheckpointBarrierListener() 里的匿名 EventListener<CheckpointBarrier>
+  class CheckpointBarrierListener : public CheckpointEventListener {
+   public:
+    explicit CheckpointBarrierListener(StreamTask* task) : task_(task) {}
+    void onEvent(const CheckpointBarrier& barrier) override;
+
+   private:
+    StreamTask* task_;
+  };
+
   // 1.0 openAllOperators / closeAllOperators / tryDisposeAllOperators /
   //     disposeAllOperators（:311-339）
   void openAllOperators();
@@ -198,11 +226,19 @@ class StreamTask : public flink::runtime::jobgraph::tasks::StatefulTask {
   Environment* environment_;
   StreamConfig configuration_;
 
-  // 1.0 `private final Object lock`：算子方法、快照、定时器回调三者互斥
-  mutable std::mutex lock_;
+  // 1.0 `private final Object lock`：算子方法、快照、定时器回调三者互斥。
+  // 【偏差 4】用 recursive_mutex 而不是 mutex —— Java 的 synchronized 是
+  // **可重入**的，而 1.0 确实依赖这一点：SourceFunction 的标准写法是 UDF 先
+  // `synchronized (ctx.getCheckpointLock())`，里面再调 ctx.collect()，而
+  // SourceContext.collect 自己又 `synchronized (lockingObject)`（见
+  // SourceFunction.java:56 的示例与 StreamSource.java:157）。std::mutex 在这种
+  // 嵌套下会自锁死，所以这把锁必须是 recursive_mutex。
+  mutable std::recursive_mutex lock_;
 
   // 1.0 `private OperatorChain<OUT> operatorChain`
   std::unique_ptr<OperatorChain> operatorChain_;
+
+  CheckpointBarrierListener checkpointBarrierListener_;
 
   std::shared_ptr<StreamTaskStateList> lazyRestoreState_;
   int64_t recoveryTimestamp_;

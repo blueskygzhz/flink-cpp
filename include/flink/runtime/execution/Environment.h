@@ -21,17 +21,21 @@
  * 【偏差】MemoryManager / IOManager 不复刻：1.0 的算子要在托管内存里做排序和
  * 溢写，本实现的状态全在堆上（只做 MemoryStateBackend）。
  *
- * 【偏差】getWriter(int) / getAllWriters() / getInputGate(int) 这几项 1.0 返回
- * ResultPartitionWriter / InputGate（由 TaskManager 按 JobGraph 的连接关系建好
- * 再注入 Task）。OperatorChain 要用 getWriter(outputIndex)（1.0
- * OperatorChain.java:284），故补上 writer 一侧；输入侧等 OneInputStreamTask
- * 落地时再补 getInputGate。用前置声明避免 Environment 依赖 network 头文件。
+ * 【偏差】getWriter(int) / getAllWriters() / getInputGate(int) /
+ * getAllInputGates() 这几项 1.0 返回 ResultPartitionWriter / InputGate
+ * （由 TaskManager 按 JobGraph 的连接关系建好再注入 Task）。OperatorChain 要用
+ * getWriter(outputIndex)（1.0 OperatorChain.java:284），OneInputStreamTask 要用
+ * getAllInputGates()（1.0 OneInputStreamTask.java:44）。用前置声明避免
+ * Environment 依赖 network 头文件。getAllWriters() / getAllInputGates() 在 1.0
+ * 返回数组，这里改为「个数 + 按下标取」两个纯虚方法，再由非虚的
+ * getAllInputGates() 拼出 vector —— 这样派生类少写一个方法，语义不变。
  */
 #ifndef FLINK_RUNTIME_EXECUTION_ENVIRONMENT_H
 #define FLINK_RUNTIME_EXECUTION_ENVIRONMENT_H
 
 #include <cstdint>
 #include <string>
+#include <vector>
 
 namespace flink {
 namespace streaming {
@@ -49,6 +53,11 @@ namespace writer {
 class ResultPartitionWriter;
 }  // namespace writer
 }  // namespace api
+namespace partition {
+namespace consumer {
+class InputGate;
+}  // namespace consumer
+}  // namespace partition
 }  // namespace network
 }  // namespace io
 }  // namespace runtime
@@ -78,6 +87,26 @@ class Environment {
 
   // 1.0 getAllWriters()：StreamTask 在失败时用来 clearBuffers
   virtual int getNumberOfWriters() const = 0;
+
+  // 1.0 getInputGate(int index)：取第 index 个输入 gate
+  virtual flink::runtime::io::network::partition::consumer::InputGate*
+  getInputGate(int index) = 0;
+
+  virtual int getNumberOfInputGates() const = 0;
+
+  // 1.0 getAllInputGates()：OneInputStreamTask.init() 把它整个交给
+  // StreamInputProcessor（1.0 OneInputStreamTask.java:44）
+  std::vector<flink::runtime::io::network::partition::consumer::InputGate*>
+  getAllInputGates() {
+    std::vector<flink::runtime::io::network::partition::consumer::InputGate*>
+        gates;
+    const int count = getNumberOfInputGates();
+    gates.reserve(count > 0 ? static_cast<size_t>(count) : 0);
+    for (int i = 0; i < count; ++i) {
+      gates.push_back(getInputGate(i));
+    }
+    return gates;
+  }
 
   // 1.0 acknowledgeCheckpoint(long)：本次 checkpoint 该 task 没有状态
   virtual void acknowledgeCheckpoint(int64_t checkpointId) = 0;
