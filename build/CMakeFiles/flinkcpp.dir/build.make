@@ -139,10 +139,38 @@ CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/partition/consumer/SingleIn
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.s"
 	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/bingochen/flink-cpp/src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp -o CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.s
 
+CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.o: CMakeFiles/flinkcpp.dir/flags.make
+CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.o: /data/bingochen/flink-cpp/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp
+CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.o: CMakeFiles/flinkcpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/bingochen/flink-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.o"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.o -MF CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.o.d -o CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.o -c /data/bingochen/flink-cpp/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp
+
+CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.i"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/bingochen/flink-cpp/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp > CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.i
+
+CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.s"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/bingochen/flink-cpp/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp -o CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.s
+
+CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.o: CMakeFiles/flinkcpp.dir/flags.make
+CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.o: /data/bingochen/flink-cpp/src/flink/runtime/io/network/api/writer/RecordWriter.cpp
+CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.o: CMakeFiles/flinkcpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/bingochen/flink-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.o"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.o -MF CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.o.d -o CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.o -c /data/bingochen/flink-cpp/src/flink/runtime/io/network/api/writer/RecordWriter.cpp
+
+CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.i"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/bingochen/flink-cpp/src/flink/runtime/io/network/api/writer/RecordWriter.cpp > CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.i
+
+CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.s"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/bingochen/flink-cpp/src/flink/runtime/io/network/api/writer/RecordWriter.cpp -o CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.s
+
 CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.o: CMakeFiles/flinkcpp.dir/flags.make
 CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.o: /data/bingochen/flink-cpp/src/flink/streaming/runtime/tasks/StreamTask.cpp
 CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.o: CMakeFiles/flinkcpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/bingochen/flink-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/bingochen/flink-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.o"
 	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.o -MF CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.o.d -o CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.o -c /data/bingochen/flink-cpp/src/flink/streaming/runtime/tasks/StreamTask.cpp
 
 CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.i: cmake_force
@@ -153,6 +181,76 @@ CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.s: cmak
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.s"
 	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/bingochen/flink-cpp/src/flink/streaming/runtime/tasks/StreamTask.cpp -o CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.s
 
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.o: CMakeFiles/flinkcpp.dir/flags.make
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.o: /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/BarrierBuffer.cpp
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.o: CMakeFiles/flinkcpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/bingochen/flink-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.o"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.o -MF CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.o.d -o CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.o -c /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/BarrierBuffer.cpp
+
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.i"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/BarrierBuffer.cpp > CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.i
+
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.s"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/BarrierBuffer.cpp -o CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.s
+
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.o: CMakeFiles/flinkcpp.dir/flags.make
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.o: /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/BarrierTracker.cpp
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.o: CMakeFiles/flinkcpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/bingochen/flink-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.o"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.o -MF CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.o.d -o CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.o -c /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/BarrierTracker.cpp
+
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.i"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/BarrierTracker.cpp > CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.i
+
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.s"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/BarrierTracker.cpp -o CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.s
+
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.o: CMakeFiles/flinkcpp.dir/flags.make
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.o: /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/StreamInputProcessor.cpp
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.o: CMakeFiles/flinkcpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/bingochen/flink-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.o"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.o -MF CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.o.d -o CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.o -c /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/StreamInputProcessor.cpp
+
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.i"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/StreamInputProcessor.cpp > CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.i
+
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.s"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/StreamInputProcessor.cpp -o CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.s
+
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.o: CMakeFiles/flinkcpp.dir/flags.make
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.o: /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/StreamRecordWriter.cpp
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.o: CMakeFiles/flinkcpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/bingochen/flink-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.o"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.o -MF CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.o.d -o CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.o -c /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/StreamRecordWriter.cpp
+
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.i"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/StreamRecordWriter.cpp > CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.i
+
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.s"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/StreamRecordWriter.cpp -o CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.s
+
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.o: CMakeFiles/flinkcpp.dir/flags.make
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.o: /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/RecordWriterOutput.cpp
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.o: CMakeFiles/flinkcpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/bingochen/flink-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.o"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.o -MF CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.o.d -o CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.o -c /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/RecordWriterOutput.cpp
+
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.i"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/RecordWriterOutput.cpp > CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.i
+
+CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.s"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/bingochen/flink-cpp/src/flink/streaming/runtime/io/RecordWriterOutput.cpp -o CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.s
+
 # Object files for target flinkcpp
 flinkcpp_OBJECTS = \
 "CMakeFiles/flinkcpp.dir/src/flink/runtime/util/MathUtils.cpp.o" \
@@ -160,7 +258,14 @@ flinkcpp_OBJECTS = \
 "CMakeFiles/flinkcpp.dir/src/flink/runtime/util/DataOutputSerializer.cpp.o" \
 "CMakeFiles/flinkcpp.dir/src/flink/runtime/state/memory/MemoryStateBackend.cpp.o" \
 "CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.o" \
-"CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.o"
+"CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.o" \
+"CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.o" \
+"CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.o" \
+"CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.o" \
+"CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.o" \
+"CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.o" \
+"CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.o" \
+"CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.o"
 
 # External object files for target flinkcpp
 flinkcpp_EXTERNAL_OBJECTS =
@@ -170,10 +275,17 @@ libflinkcpp.a: CMakeFiles/flinkcpp.dir/src/flink/runtime/util/DataInputDeseriali
 libflinkcpp.a: CMakeFiles/flinkcpp.dir/src/flink/runtime/util/DataOutputSerializer.cpp.o
 libflinkcpp.a: CMakeFiles/flinkcpp.dir/src/flink/runtime/state/memory/MemoryStateBackend.cpp.o
 libflinkcpp.a: CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.o
+libflinkcpp.a: CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.o
+libflinkcpp.a: CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.o
 libflinkcpp.a: CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.o
+libflinkcpp.a: CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.o
+libflinkcpp.a: CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.o
+libflinkcpp.a: CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.o
+libflinkcpp.a: CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.o
+libflinkcpp.a: CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.o
 libflinkcpp.a: CMakeFiles/flinkcpp.dir/build.make
 libflinkcpp.a: CMakeFiles/flinkcpp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/data/bingochen/flink-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libflinkcpp.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/data/bingochen/flink-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX static library libflinkcpp.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/flinkcpp.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/flinkcpp.dir/link.txt --verbose=$(VERBOSE)
 

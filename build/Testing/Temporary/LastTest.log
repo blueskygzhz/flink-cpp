@@ -1,10 +1,10 @@
-Start testing: Nov 08 15:42 CST
+Start testing: Nov 08 16:18 CST
 ----------------------------------------------------------
-1/2 Testing: state_backend
-1/2 Test: state_backend
+1/3 Testing: state_backend
+1/3 Test: state_backend
 Command: "/data/bingochen/flink-cpp/build/state_backend_test"
 Directory: /data/bingochen/flink-cpp/build
-"state_backend" start time: Nov 08 15:42 CST
+"state_backend" start time: Nov 08 16:18 CST
 Output:
 ----------------------------------------------------------
 ok    ValueState.value() 回落到 descriptor 默认值
@@ -30,15 +30,15 @@ ALL PASSED
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"state_backend" end time: Nov 08 15:42 CST
+"state_backend" end time: Nov 08 16:18 CST
 "state_backend" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-2/2 Testing: operators
-2/2 Test: operators
+2/3 Testing: operators
+2/3 Test: operators
 Command: "/data/bingochen/flink-cpp/build/operator_test"
 Directory: /data/bingochen/flink-cpp/build
-"operators" start time: Nov 08 15:42 CST
+"operators" start time: Nov 08 16:18 CST
 Output:
 ----------------------------------------------------------
 ok    StreamTask 走完 init/cleanup
@@ -75,8 +75,239 @@ ALL PASSED
 Test time =   0.15 sec
 ----------------------------------------------------------
 Test Passed.
-"operators" end time: Nov 08 15:42 CST
+"operators" end time: Nov 08 16:18 CST
 "operators" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Nov 08 15:42 CST
+3/3 Testing: io
+3/3 Test: io
+Command: "/data/bingochen/flink-cpp/build/io_test"
+Directory: /data/bingochen/flink-cpp/build
+"io" start time: Nov 08 16:18 CST
+Output:
+----------------------------------------------------------
+ok    tracker/singleNoBarriers: element 0
+ok    tracker/singleNoBarriers: element 1
+ok    tracker/singleNoBarriers: element 2
+ok    tracker/singleNoBarriers: end of stream
+ok    tracker/singleNoBarriers: end of stream (again)
+ok    tracker/singleWithBarriers: element 0
+ok    tracker/singleWithBarriers: element 1
+ok    tracker/singleWithBarriers: element 2
+ok    validator[0]: expected 1, got 1
+ok    tracker/singleWithBarriers: element 3
+ok    tracker/singleWithBarriers: element 4
+ok    tracker/singleWithBarriers: element 5
+ok    tracker/singleWithBarriers: element 6
+ok    validator[1]: expected 2, got 2
+ok    validator[2]: expected 3, got 3
+ok    tracker/singleWithBarriers: element 7
+ok    tracker/singleWithBarriers: element 8
+ok    validator[3]: expected 4, got 4
+ok    validator[4]: expected 5, got 5
+ok    validator[5]: expected 6, got 6
+ok    tracker/singleWithBarriers: element 9
+ok    tracker/singleWithBarriers: end of stream
+ok    tracker/singleWithBarriers: end of stream (again)
+ok    tracker/singleWithBarriers: all 6 notified
+ok    tracker/multiWithBarriers: element 0
+ok    tracker/multiWithBarriers: element 1
+ok    tracker/multiWithBarriers: element 2
+ok    tracker/multiWithBarriers: element 3
+ok    tracker/multiWithBarriers: element 4
+ok    validator[0]: expected 1, got 1
+ok    tracker/multiWithBarriers: element 5
+ok    tracker/multiWithBarriers: element 6
+ok    tracker/multiWithBarriers: element 7
+ok    tracker/multiWithBarriers: element 8
+ok    tracker/multiWithBarriers: element 9
+ok    validator[1]: expected 2, got 2
+ok    tracker/multiWithBarriers: element 10
+ok    tracker/multiWithBarriers: element 11
+ok    tracker/multiWithBarriers: element 12
+ok    tracker/multiWithBarriers: element 13
+ok    validator[2]: expected 3, got 3
+ok    validator[3]: expected 4, got 4
+ok    tracker/multiWithBarriers: element 14
+ok    tracker/multiWithBarriers: end of stream
+ok    tracker/multiWithBarriers: end of stream (again)
+ok    tracker/multiWithBarriers: all 4 notified
+ok    tracker/multiSkipping: element 0
+ok    tracker/multiSkipping: element 1
+ok    tracker/multiSkipping: element 2
+ok    tracker/multiSkipping: element 3
+ok    tracker/multiSkipping: element 4
+ok    validator[0]: expected 1, got 1
+ok    tracker/multiSkipping: element 5
+ok    tracker/multiSkipping: element 6
+ok    tracker/multiSkipping: element 7
+ok    tracker/multiSkipping: element 8
+ok    tracker/multiSkipping: element 9
+ok    validator[1]: expected 2, got 2
+ok    tracker/multiSkipping: element 10
+ok    tracker/multiSkipping: element 11
+ok    tracker/multiSkipping: element 12
+ok    tracker/multiSkipping: element 13
+ok    tracker/multiSkipping: element 14
+ok    tracker/multiSkipping: element 15
+ok    tracker/multiSkipping: element 16
+ok    tracker/multiSkipping: element 17
+ok    validator[2]: expected 4, got 4
+ok    tracker/multiSkipping: element 18
+ok    tracker/multiSkipping: end of stream
+ok    tracker/multiSkipping: end of stream (again)
+ok    tracker/multiSkipping: 1,2,4 notified
+ok    tracker/lateBarriers: element 0
+ok    tracker/lateBarriers: element 1
+ok    tracker/lateBarriers: element 2
+ok    tracker/lateBarriers: element 3
+ok    validator[0]: expected 2, got 2
+ok    tracker/lateBarriers: element 4
+ok    tracker/lateBarriers: element 5
+ok    tracker/lateBarriers: element 6
+ok    tracker/lateBarriers: element 7
+ok    tracker/lateBarriers: element 8
+ok    tracker/lateBarriers: element 9
+ok    validator[1]: expected 3, got 3
+ok    tracker/lateBarriers: element 10
+ok    validator[2]: expected 4, got 4
+ok    tracker/lateBarriers: element 11
+ok    tracker/lateBarriers: element 12
+ok    tracker/lateBarriers: element 13
+ok    tracker/lateBarriers: element 14
+ok    validator[3]: expected 5, got 5
+ok    tracker/lateBarriers: element 15
+ok    tracker/lateBarriers: element 16
+ok    tracker/lateBarriers: element 17
+ok    tracker/lateBarriers: element 18
+ok    tracker/lateBarriers: element 19
+ok    tracker/lateBarriers: element 20
+ok    tracker/lateBarriers: element 21
+ok    validator[4]: expected 7, got 7
+ok    tracker/lateBarriers: element 22
+ok    tracker/lateBarriers: element 23
+ok    validator[5]: expected 8, got 8
+ok    tracker/lateBarriers: element 24
+ok    tracker/lateBarriers: element 25
+ok    validator[6]: expected 9, got 9
+ok    tracker/lateBarriers: element 26
+ok    tracker/lateBarriers: element 27
+ok    tracker/lateBarriers: element 28
+ok    tracker/lateBarriers: end of stream
+ok    tracker/lateBarriers: end of stream (again)
+ok    tracker/lateBarriers: 2,3,4,5,7,8,9 notified
+ok    buffer/singleWithBarriers: element 0
+ok    buffer/singleWithBarriers: element 1
+ok    buffer/singleWithBarriers: element 2
+ok    handler: expected checkpoint 1, got 1
+ok    buffer/singleWithBarriers: element 3
+ok    buffer/singleWithBarriers: element 4
+ok    buffer/singleWithBarriers: element 5
+ok    buffer/singleWithBarriers: element 6
+ok    handler: expected checkpoint 2, got 2
+ok    handler: expected checkpoint 3, got 3
+ok    buffer/singleWithBarriers: element 7
+ok    buffer/singleWithBarriers: element 8
+ok    handler: expected checkpoint 4, got 4
+ok    handler: expected checkpoint 5, got 5
+ok    handler: expected checkpoint 6, got 6
+ok    buffer/singleWithBarriers: element 9
+ok    buffer/singleWithBarriers: element 10
+ok    buffer/singleWithBarriers: end of stream
+ok    buffer/singleWithBarriers: end of stream (again)
+ok    buffer/singleWithBarriers: checkpoints 1..6 triggered
+ok    buffer/multiWithBarriers: step 0 -> sequence[0]
+ok    buffer/multiWithBarriers: step 1 -> sequence[1]
+ok    buffer/multiWithBarriers: step 2 -> sequence[2]
+ok    buffer/multiWithBarriers: still aligning checkpoint 1
+ok    buffer/multiWithBarriers: step 3 -> sequence[7]
+ok    buffer/multiWithBarriers: still aligning checkpoint 1
+ok    handler: expected checkpoint 1, got 1
+ok    buffer/multiWithBarriers: step 4 -> sequence[5]
+ok    buffer/multiWithBarriers: checkpoint 1 complete
+ok    buffer/multiWithBarriers: step 5 -> sequence[6]
+ok    buffer/multiWithBarriers: step 6 -> sequence[9]
+ok    buffer/multiWithBarriers: step 7 -> sequence[10]
+ok    buffer/multiWithBarriers: step 8 -> sequence[11]
+ok    buffer/multiWithBarriers: step 9 -> sequence[12]
+ok    buffer/multiWithBarriers: step 10 -> sequence[13]
+ok    buffer/multiWithBarriers: checkpoint 1 complete
+ok    handler: expected checkpoint 2, got 2
+ok    buffer/multiWithBarriers: step 11 -> sequence[17]
+ok    buffer/multiWithBarriers: checkpoint 2 complete
+ok    buffer/multiWithBarriers: step 12 -> sequence[18]
+ok    handler: expected checkpoint 3, got 3
+ok    buffer/multiWithBarriers: step 13 -> sequence[20]
+ok    buffer/multiWithBarriers: checkpoint 3 complete
+ok    buffer/multiWithBarriers: step 14 -> sequence[21]
+ok    handler: expected checkpoint 4, got 4
+ok    buffer/multiWithBarriers: step 15 -> sequence[27]
+ok    buffer/multiWithBarriers: checkpoint 4 complete
+ok    buffer/multiWithBarriers: step 16 -> sequence[28]
+ok    buffer/multiWithBarriers: step 17 -> sequence[29]
+ok    buffer/multiWithBarriers: step 18 -> sequence[31]
+ok    buffer/multiWithBarriers: step 19 -> sequence[32]
+ok    buffer/multiWithBarriers: step 20 -> sequence[33]
+ok    buffer/multiWithBarriers: step 21 -> sequence[37]
+ok    handler: expected checkpoint 5, got 5
+ok    buffer/multiWithBarriers: step 22 -> sequence[34]
+ok    buffer/multiWithBarriers: step 23 -> sequence[36]
+ok    buffer/multiWithBarriers: step 24 -> sequence[38]
+ok    buffer/multiWithBarriers: step 25 -> sequence[39]
+ok    buffer/multiWithBarriers: step 26 -> sequence[41]
+ok    buffer/multiWithBarriers: step 27 -> sequence[42]
+ok    buffer/multiWithBarriers: step 28 -> sequence[43]
+ok    buffer/multiWithBarriers: step 29 -> sequence[44]
+ok    buffer/multiWithBarriers: end of stream
+ok    buffer/multiWithBarriers: end of stream (again)
+ok    buffer/multiWithBarriers: checkpoints 1..5 triggered
+ok    buffer/multiWithBarriers: empty after cleanup
+ok    union: 2 + 3 = 5 input channels
+ok    union: not finished while data remains
+ok    union: element 0 mapped to channel 0
+ok    union: element 1 mapped to channel 2
+ok    union: element 2 mapped to channel 1
+ok    union: element 3 mapped to channel 4
+ok    union: exhausted
+ok    union: finished when all gates finished
+ok    processor: both records delivered in order
+ok    processor: setKeyContextElement1 called once before each element
+ok    processor: exactly 2 watermarks emitted
+ok    processor: first emitted watermark is min 5
+ok    processor: second emitted watermark is min 20
+ok    processor: stays finished after end of input
+ok    handler: expected checkpoint 1, got 1
+ok    handler: expected checkpoint 2, got 2
+ok    processor/exactlyOnce: 2 records delivered
+ok    processor/exactlyOnce: checkpoints 1 and 2 triggered
+ok    roundRobin: call 0 -> channel 1
+ok    roundRobin: call 1 -> channel 2
+ok    roundRobin: call 2 -> channel 0
+ok    roundRobin: call 3 -> channel 1
+ok    roundRobin: call 4 -> channel 2
+ok    roundRobin: call 5 -> channel 0
+ok    writer: 3 output channels (subpartitions)
+ok    writer: 3 records + 3 watermark copies + 3 barriers
+ok    writer: emit #1 -> channel 1
+ok    writer: emit #2 -> channel 2
+ok    writer: emit #3 -> channel 0
+ok    writer: broadcastEmit -> channels 0,1,2
+ok    writer: broadcastEvent -> channels 0,1,2
+ok    streamRecordWriter: timeout -1 -> no flushAlways, no flusher
+ok    streamRecordWriter: timeout 0 -> flushAlways, no flusher
+ok    streamRecordWriter: timeout 100 -> default flusher name
+ok    streamRecordWriter: named flusher thread
+ok    streamRecordWriter: timeout < -1 rejected
+ok    e2e: both records arrive in emit order
+ok    e2e: broadcast watermark emitted once as min 7
+
+all io tests passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"io" end time: Nov 08 16:18 CST
+"io" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 08 16:18 CST

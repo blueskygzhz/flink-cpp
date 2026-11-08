@@ -259,6 +259,10 @@ CMakeFiles/operator_test.dir/test/operator_test.cpp.o: /data/bingochen/flink-cpp
   /data/bingochen/flink-cpp/include/flink/streaming/api/operators/StreamFlatMap.h \
   /data/bingochen/flink-cpp/include/flink/api/common/functions/FlatMapFunction.h \
   /data/bingochen/flink-cpp/include/flink/streaming/api/operators/TimestampedCollector.h \
+  /data/bingochen/flink-cpp/include/flink/streaming/api/operators/StreamGroupedFold.h \
+  /data/bingochen/flink-cpp/include/flink/api/common/functions/FoldFunction.h \
+  /data/bingochen/flink-cpp/include/flink/streaming/api/operators/StreamGroupedReduce.h \
+  /data/bingochen/flink-cpp/include/flink/api/common/functions/ReduceFunction.h \
   /data/bingochen/flink-cpp/include/flink/streaming/api/operators/StreamMap.h \
   /data/bingochen/flink-cpp/include/flink/api/common/functions/MapFunction.h
 
@@ -266,6 +270,8 @@ CMakeFiles/operator_test.dir/test/operator_test.cpp.o: /data/bingochen/flink-cpp
 /data/bingochen/flink-cpp/include/flink/api/common/functions/MapFunction.h:
 
 /data/bingochen/flink-cpp/include/flink/streaming/api/operators/StreamMap.h:
+
+/data/bingochen/flink-cpp/include/flink/api/common/functions/ReduceFunction.h:
 
 /data/bingochen/flink-cpp/include/flink/api/common/functions/FlatMapFunction.h:
 
@@ -455,6 +461,8 @@ CMakeFiles/operator_test.dir/test/operator_test.cpp.o: /data/bingochen/flink-cpp
 
 /usr/include/bits/sched.h:
 
+/data/bingochen/flink-cpp/include/flink/streaming/api/operators/StreamGroupedFold.h:
+
 /usr/include/endian.h:
 
 /usr/include/bits/types.h:
@@ -615,6 +623,8 @@ CMakeFiles/operator_test.dir/test/operator_test.cpp.o: /data/bingochen/flink-cpp
 
 /usr/local/include/c++/7.5.0/x86_64-pc-linux-gnu/bits/atomic_word.h:
 
+/data/bingochen/flink-cpp/include/flink/api/common/functions/FoldFunction.h:
+
 /data/bingochen/flink-cpp/include/flink/streaming/runtime/operators/Triggerable.h:
 
 /usr/include/stdc-predef.h:
@@ -662,6 +672,8 @@ CMakeFiles/operator_test.dir/test/operator_test.cpp.o: /data/bingochen/flink-cpp
 /usr/include/bits/locale.h:
 
 /usr/include/stdint.h:
+
+/data/bingochen/flink-cpp/include/flink/streaming/api/operators/StreamGroupedReduce.h:
 
 /usr/local/include/c++/7.5.0/bits/vector.tcc:
 

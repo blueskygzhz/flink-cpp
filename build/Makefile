@@ -165,6 +165,67 @@ operator_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/operator_test.dir/build.make CMakeFiles/operator_test.dir/build
 .PHONY : operator_test/fast
 
+#=============================================================================
+# Target rules for targets named io_test
+
+# Build rule for target.
+io_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 io_test
+.PHONY : io_test
+
+# fast build rule for target.
+io_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/io_test.dir/build.make CMakeFiles/io_test.dir/build
+.PHONY : io_test/fast
+
+src/flink/runtime/io/network/api/writer/RecordWriter.o: src/flink/runtime/io/network/api/writer/RecordWriter.cpp.o
+.PHONY : src/flink/runtime/io/network/api/writer/RecordWriter.o
+
+# target to build an object file
+src/flink/runtime/io/network/api/writer/RecordWriter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.o
+.PHONY : src/flink/runtime/io/network/api/writer/RecordWriter.cpp.o
+
+src/flink/runtime/io/network/api/writer/RecordWriter.i: src/flink/runtime/io/network/api/writer/RecordWriter.cpp.i
+.PHONY : src/flink/runtime/io/network/api/writer/RecordWriter.i
+
+# target to preprocess a source file
+src/flink/runtime/io/network/api/writer/RecordWriter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.i
+.PHONY : src/flink/runtime/io/network/api/writer/RecordWriter.cpp.i
+
+src/flink/runtime/io/network/api/writer/RecordWriter.s: src/flink/runtime/io/network/api/writer/RecordWriter.cpp.s
+.PHONY : src/flink/runtime/io/network/api/writer/RecordWriter.s
+
+# target to generate assembly for a file
+src/flink/runtime/io/network/api/writer/RecordWriter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/RecordWriter.cpp.s
+.PHONY : src/flink/runtime/io/network/api/writer/RecordWriter.cpp.s
+
+src/flink/runtime/io/network/api/writer/ResultPartitionWriter.o: src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.o
+.PHONY : src/flink/runtime/io/network/api/writer/ResultPartitionWriter.o
+
+# target to build an object file
+src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.o
+.PHONY : src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.o
+
+src/flink/runtime/io/network/api/writer/ResultPartitionWriter.i: src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.i
+.PHONY : src/flink/runtime/io/network/api/writer/ResultPartitionWriter.i
+
+# target to preprocess a source file
+src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.i
+.PHONY : src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.i
+
+src/flink/runtime/io/network/api/writer/ResultPartitionWriter.s: src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.s
+.PHONY : src/flink/runtime/io/network/api/writer/ResultPartitionWriter.s
+
+# target to generate assembly for a file
+src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.s
+.PHONY : src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp.s
+
 src/flink/runtime/io/network/partition/consumer/SingleInputGate.o: src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp.o
 .PHONY : src/flink/runtime/io/network/partition/consumer/SingleInputGate.o
 
@@ -285,6 +346,126 @@ src/flink/runtime/util/MathUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/runtime/util/MathUtils.cpp.s
 .PHONY : src/flink/runtime/util/MathUtils.cpp.s
 
+src/flink/streaming/runtime/io/BarrierBuffer.o: src/flink/streaming/runtime/io/BarrierBuffer.cpp.o
+.PHONY : src/flink/streaming/runtime/io/BarrierBuffer.o
+
+# target to build an object file
+src/flink/streaming/runtime/io/BarrierBuffer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.o
+.PHONY : src/flink/streaming/runtime/io/BarrierBuffer.cpp.o
+
+src/flink/streaming/runtime/io/BarrierBuffer.i: src/flink/streaming/runtime/io/BarrierBuffer.cpp.i
+.PHONY : src/flink/streaming/runtime/io/BarrierBuffer.i
+
+# target to preprocess a source file
+src/flink/streaming/runtime/io/BarrierBuffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.i
+.PHONY : src/flink/streaming/runtime/io/BarrierBuffer.cpp.i
+
+src/flink/streaming/runtime/io/BarrierBuffer.s: src/flink/streaming/runtime/io/BarrierBuffer.cpp.s
+.PHONY : src/flink/streaming/runtime/io/BarrierBuffer.s
+
+# target to generate assembly for a file
+src/flink/streaming/runtime/io/BarrierBuffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierBuffer.cpp.s
+.PHONY : src/flink/streaming/runtime/io/BarrierBuffer.cpp.s
+
+src/flink/streaming/runtime/io/BarrierTracker.o: src/flink/streaming/runtime/io/BarrierTracker.cpp.o
+.PHONY : src/flink/streaming/runtime/io/BarrierTracker.o
+
+# target to build an object file
+src/flink/streaming/runtime/io/BarrierTracker.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.o
+.PHONY : src/flink/streaming/runtime/io/BarrierTracker.cpp.o
+
+src/flink/streaming/runtime/io/BarrierTracker.i: src/flink/streaming/runtime/io/BarrierTracker.cpp.i
+.PHONY : src/flink/streaming/runtime/io/BarrierTracker.i
+
+# target to preprocess a source file
+src/flink/streaming/runtime/io/BarrierTracker.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.i
+.PHONY : src/flink/streaming/runtime/io/BarrierTracker.cpp.i
+
+src/flink/streaming/runtime/io/BarrierTracker.s: src/flink/streaming/runtime/io/BarrierTracker.cpp.s
+.PHONY : src/flink/streaming/runtime/io/BarrierTracker.s
+
+# target to generate assembly for a file
+src/flink/streaming/runtime/io/BarrierTracker.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/BarrierTracker.cpp.s
+.PHONY : src/flink/streaming/runtime/io/BarrierTracker.cpp.s
+
+src/flink/streaming/runtime/io/RecordWriterOutput.o: src/flink/streaming/runtime/io/RecordWriterOutput.cpp.o
+.PHONY : src/flink/streaming/runtime/io/RecordWriterOutput.o
+
+# target to build an object file
+src/flink/streaming/runtime/io/RecordWriterOutput.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.o
+.PHONY : src/flink/streaming/runtime/io/RecordWriterOutput.cpp.o
+
+src/flink/streaming/runtime/io/RecordWriterOutput.i: src/flink/streaming/runtime/io/RecordWriterOutput.cpp.i
+.PHONY : src/flink/streaming/runtime/io/RecordWriterOutput.i
+
+# target to preprocess a source file
+src/flink/streaming/runtime/io/RecordWriterOutput.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.i
+.PHONY : src/flink/streaming/runtime/io/RecordWriterOutput.cpp.i
+
+src/flink/streaming/runtime/io/RecordWriterOutput.s: src/flink/streaming/runtime/io/RecordWriterOutput.cpp.s
+.PHONY : src/flink/streaming/runtime/io/RecordWriterOutput.s
+
+# target to generate assembly for a file
+src/flink/streaming/runtime/io/RecordWriterOutput.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/RecordWriterOutput.cpp.s
+.PHONY : src/flink/streaming/runtime/io/RecordWriterOutput.cpp.s
+
+src/flink/streaming/runtime/io/StreamInputProcessor.o: src/flink/streaming/runtime/io/StreamInputProcessor.cpp.o
+.PHONY : src/flink/streaming/runtime/io/StreamInputProcessor.o
+
+# target to build an object file
+src/flink/streaming/runtime/io/StreamInputProcessor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.o
+.PHONY : src/flink/streaming/runtime/io/StreamInputProcessor.cpp.o
+
+src/flink/streaming/runtime/io/StreamInputProcessor.i: src/flink/streaming/runtime/io/StreamInputProcessor.cpp.i
+.PHONY : src/flink/streaming/runtime/io/StreamInputProcessor.i
+
+# target to preprocess a source file
+src/flink/streaming/runtime/io/StreamInputProcessor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.i
+.PHONY : src/flink/streaming/runtime/io/StreamInputProcessor.cpp.i
+
+src/flink/streaming/runtime/io/StreamInputProcessor.s: src/flink/streaming/runtime/io/StreamInputProcessor.cpp.s
+.PHONY : src/flink/streaming/runtime/io/StreamInputProcessor.s
+
+# target to generate assembly for a file
+src/flink/streaming/runtime/io/StreamInputProcessor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamInputProcessor.cpp.s
+.PHONY : src/flink/streaming/runtime/io/StreamInputProcessor.cpp.s
+
+src/flink/streaming/runtime/io/StreamRecordWriter.o: src/flink/streaming/runtime/io/StreamRecordWriter.cpp.o
+.PHONY : src/flink/streaming/runtime/io/StreamRecordWriter.o
+
+# target to build an object file
+src/flink/streaming/runtime/io/StreamRecordWriter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.o
+.PHONY : src/flink/streaming/runtime/io/StreamRecordWriter.cpp.o
+
+src/flink/streaming/runtime/io/StreamRecordWriter.i: src/flink/streaming/runtime/io/StreamRecordWriter.cpp.i
+.PHONY : src/flink/streaming/runtime/io/StreamRecordWriter.i
+
+# target to preprocess a source file
+src/flink/streaming/runtime/io/StreamRecordWriter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.i
+.PHONY : src/flink/streaming/runtime/io/StreamRecordWriter.cpp.i
+
+src/flink/streaming/runtime/io/StreamRecordWriter.s: src/flink/streaming/runtime/io/StreamRecordWriter.cpp.s
+.PHONY : src/flink/streaming/runtime/io/StreamRecordWriter.s
+
+# target to generate assembly for a file
+src/flink/streaming/runtime/io/StreamRecordWriter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/io/StreamRecordWriter.cpp.s
+.PHONY : src/flink/streaming/runtime/io/StreamRecordWriter.cpp.s
+
 src/flink/streaming/runtime/tasks/StreamTask.o: src/flink/streaming/runtime/tasks/StreamTask.cpp.o
 .PHONY : src/flink/streaming/runtime/tasks/StreamTask.o
 
@@ -308,6 +489,30 @@ src/flink/streaming/runtime/tasks/StreamTask.s: src/flink/streaming/runtime/task
 src/flink/streaming/runtime/tasks/StreamTask.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/flinkcpp.dir/build.make CMakeFiles/flinkcpp.dir/src/flink/streaming/runtime/tasks/StreamTask.cpp.s
 .PHONY : src/flink/streaming/runtime/tasks/StreamTask.cpp.s
+
+test/io_test.o: test/io_test.cpp.o
+.PHONY : test/io_test.o
+
+# target to build an object file
+test/io_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/io_test.dir/build.make CMakeFiles/io_test.dir/test/io_test.cpp.o
+.PHONY : test/io_test.cpp.o
+
+test/io_test.i: test/io_test.cpp.i
+.PHONY : test/io_test.i
+
+# target to preprocess a source file
+test/io_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/io_test.dir/build.make CMakeFiles/io_test.dir/test/io_test.cpp.i
+.PHONY : test/io_test.cpp.i
+
+test/io_test.s: test/io_test.cpp.s
+.PHONY : test/io_test.s
+
+# target to generate assembly for a file
+test/io_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/io_test.dir/build.make CMakeFiles/io_test.dir/test/io_test.cpp.s
+.PHONY : test/io_test.cpp.s
 
 test/operator_test.o: test/operator_test.cpp.o
 .PHONY : test/operator_test.o
@@ -367,8 +572,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... flinkcpp"
+	@echo "... io_test"
 	@echo "... operator_test"
 	@echo "... state_backend_test"
+	@echo "... src/flink/runtime/io/network/api/writer/RecordWriter.o"
+	@echo "... src/flink/runtime/io/network/api/writer/RecordWriter.i"
+	@echo "... src/flink/runtime/io/network/api/writer/RecordWriter.s"
+	@echo "... src/flink/runtime/io/network/api/writer/ResultPartitionWriter.o"
+	@echo "... src/flink/runtime/io/network/api/writer/ResultPartitionWriter.i"
+	@echo "... src/flink/runtime/io/network/api/writer/ResultPartitionWriter.s"
 	@echo "... src/flink/runtime/io/network/partition/consumer/SingleInputGate.o"
 	@echo "... src/flink/runtime/io/network/partition/consumer/SingleInputGate.i"
 	@echo "... src/flink/runtime/io/network/partition/consumer/SingleInputGate.s"
@@ -384,9 +596,27 @@ help:
 	@echo "... src/flink/runtime/util/MathUtils.o"
 	@echo "... src/flink/runtime/util/MathUtils.i"
 	@echo "... src/flink/runtime/util/MathUtils.s"
+	@echo "... src/flink/streaming/runtime/io/BarrierBuffer.o"
+	@echo "... src/flink/streaming/runtime/io/BarrierBuffer.i"
+	@echo "... src/flink/streaming/runtime/io/BarrierBuffer.s"
+	@echo "... src/flink/streaming/runtime/io/BarrierTracker.o"
+	@echo "... src/flink/streaming/runtime/io/BarrierTracker.i"
+	@echo "... src/flink/streaming/runtime/io/BarrierTracker.s"
+	@echo "... src/flink/streaming/runtime/io/RecordWriterOutput.o"
+	@echo "... src/flink/streaming/runtime/io/RecordWriterOutput.i"
+	@echo "... src/flink/streaming/runtime/io/RecordWriterOutput.s"
+	@echo "... src/flink/streaming/runtime/io/StreamInputProcessor.o"
+	@echo "... src/flink/streaming/runtime/io/StreamInputProcessor.i"
+	@echo "... src/flink/streaming/runtime/io/StreamInputProcessor.s"
+	@echo "... src/flink/streaming/runtime/io/StreamRecordWriter.o"
+	@echo "... src/flink/streaming/runtime/io/StreamRecordWriter.i"
+	@echo "... src/flink/streaming/runtime/io/StreamRecordWriter.s"
 	@echo "... src/flink/streaming/runtime/tasks/StreamTask.o"
 	@echo "... src/flink/streaming/runtime/tasks/StreamTask.i"
 	@echo "... src/flink/streaming/runtime/tasks/StreamTask.s"
+	@echo "... test/io_test.o"
+	@echo "... test/io_test.i"
+	@echo "... test/io_test.s"
 	@echo "... test/operator_test.o"
 	@echo "... test/operator_test.i"
 	@echo "... test/operator_test.s"

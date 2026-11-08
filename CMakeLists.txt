@@ -22,7 +22,16 @@ set(FLINKCPP_SOURCES
   src/flink/runtime/util/DataOutputSerializer.cpp
   src/flink/runtime/state/memory/MemoryStateBackend.cpp
   src/flink/runtime/io/network/partition/consumer/SingleInputGate.cpp
+  src/flink/runtime/io/network/api/writer/ResultPartitionWriter.cpp
+  src/flink/runtime/io/network/api/writer/RecordWriter.cpp
+  src/flink/streaming/api/graph/StreamNode.cpp
   src/flink/streaming/runtime/tasks/StreamTask.cpp
+  src/flink/streaming/runtime/tasks/OperatorChain.cpp
+  src/flink/streaming/runtime/io/BarrierBuffer.cpp
+  src/flink/streaming/runtime/io/BarrierTracker.cpp
+  src/flink/streaming/runtime/io/StreamInputProcessor.cpp
+  src/flink/streaming/runtime/io/StreamRecordWriter.cpp
+  src/flink/streaming/runtime/io/RecordWriterOutput.cpp
 )
 
 add_library(flinkcpp STATIC ${FLINKCPP_SOURCES})
@@ -39,6 +48,10 @@ add_test(NAME state_backend COMMAND state_backend_test)
 add_executable(operator_test test/operator_test.cpp)
 target_link_libraries(operator_test PRIVATE flinkcpp)
 add_test(NAME operators COMMAND operator_test)
+
+add_executable(io_test test/io_test.cpp)
+target_link_libraries(io_test PRIVATE flinkcpp)
+add_test(NAME io COMMAND io_test)
 
 # examples/ 下的三个程序仍是 0.1 single-header 时代的（#include
 # "flinkcpp/api.hpp"），要等 streaming 层（StreamExecutionEnvironment /

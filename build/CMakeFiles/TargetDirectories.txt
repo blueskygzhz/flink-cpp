@@ -1,6 +1,7 @@
 /data/bingochen/flink-cpp/build/CMakeFiles/flinkcpp.dir
 /data/bingochen/flink-cpp/build/CMakeFiles/state_backend_test.dir
 /data/bingochen/flink-cpp/build/CMakeFiles/operator_test.dir
+/data/bingochen/flink-cpp/build/CMakeFiles/io_test.dir
 /data/bingochen/flink-cpp/build/CMakeFiles/test.dir
 /data/bingochen/flink-cpp/build/CMakeFiles/edit_cache.dir
 /data/bingochen/flink-cpp/build/CMakeFiles/rebuild_cache.dir

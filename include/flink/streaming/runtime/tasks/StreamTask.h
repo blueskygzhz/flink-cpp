@@ -37,13 +37,13 @@
  *
  * ──────────────── 与 1.0 的偏差 ────────────────
  *
- * 【偏差 1 —— OperatorChain 尚未落地】1.0 的 invoke() 第一件事是
- * `operatorChain = new OperatorChain<>(this, headOperator, ...)`，由它负责把
- * 链上算子串成一串 ChainingOutput、给出 chainEntryPoint、broadcast 屏障、
- * flush/release 输出。OperatorChain 依赖 StreamEdge / StreamGraph，还没到，
- * 所以这里暂时由 StreamTask 直接持有 headOperator、chainEntryPoint 与
- * streamOutputs，getAllOperators() 只返回 headOperator 一个。链接能力补上
- * OperatorChain 后再接。1.0 调用点的顺序与锁范围在此处原样保留，便于到时替换。
+ * 【偏差 1 —— reporter 参数】1.0 的 invoke() 第一件事是
+ * `operatorChain = new OperatorChain<>(this, headOperator,
+ *   getEnvironment().getAccumulatorRegistry().getReadWriteReporter())`。
+ * 本实现已按 1.0 接上 OperatorChain，只是构造参数里的
+ * AccumulatorRegistry.Reporter 省掉了（见 OperatorChain.h 偏差 3）。
+ * getAllOperators() / flushOutputs() / releaseOutputs() /
+ * broadcastCheckpointBarrier() 全部转给 operatorChain_，与 1.0 一致。
  *
  * 【偏差 2 —— 定时器服务】1.0 用
  * `Executors.newSingleThreadScheduledExecutor(DispatcherThreadFactory(
@@ -77,6 +77,7 @@
 #include "flink/streaming/api/operators/Output.h"
 #include "flink/streaming/api/operators/StreamOperator.h"
 #include "flink/streaming/runtime/operators/Triggerable.h"
+#include "flink/streaming/runtime/tasks/OperatorChain.h"
 #include "flink/streaming/runtime/tasks/StreamTaskStateList.h"
 
 namespace flink {
@@ -90,6 +91,7 @@ class StreamTask : public flink::runtime::jobgraph::tasks::StatefulTask {
   typedef flink::streaming::api::operators::Output Output;
   typedef flink::streaming::api::operators::StreamOperator StreamOperator;
   typedef flink::streaming::runtime::operators::Triggerable Triggerable;
+  typedef flink::streaming::runtime::io::RecordWriterOutput RecordWriterOutput;
   typedef flink::runtime::execution::Environment Environment;
   typedef std::shared_ptr<flink::runtime::state::AbstractStateBackend>
       StateBackendPtr;
@@ -118,13 +120,12 @@ class StreamTask : public flink::runtime::jobgraph::tasks::StatefulTask {
   StreamConfig& getConfiguration() { return configuration_; }
   Environment* getEnvironment() const { return environment_; }
 
-  // 1.0 getHeadOutput() / getStreamOutputs()
-  Output* getHeadOutput() const { return chainEntryPoint_; }
-  const std::vector<Output*>& getStreamOutputs() const {
-    return streamOutputs_;
-  }
+  // 1.0 getHeadOutput() -> operatorChain.getChainEntryPoint()
+  // 1.0 getStreamOutputs() -> operatorChain.getStreamOutputs()
+  Output* getHeadOutput() const;
+  const std::vector<RecordWriterOutput*>& getStreamOutputs() const;
 
-  // 1.0 operatorChain.getAllOperators()（见偏差 1）
+  // 1.0 operatorChain.getAllOperators()
   std::vector<StreamOperator*> getAllOperators() const;
 
   // ---------------------------- StatefulTask ----------------------------
@@ -158,10 +159,6 @@ class StreamTask : public flink::runtime::jobgraph::tasks::StatefulTask {
   // 1.0 isSerializingTimestamps()（:377）：EventTime / IngestionTime 下
   // StreamRecord 的时间戳要随记录一起序列化
   bool isSerializingTimestamps() const;
-
-  // 【偏差 1】OperatorChain 到位前，由子类（或搭建代码）填这两项
-  void setChainEntryPoint(Output* output) { chainEntryPoint_ = output; }
-  void addStreamOutput(Output* output) { streamOutputs_.push_back(output); }
 
   // 1.0 operatorChain.broadcastCheckpointBarrier(checkpointId, timestamp)
   void broadcastCheckpointBarrier(int64_t checkpointId, int64_t timestamp);
@@ -204,8 +201,8 @@ class StreamTask : public flink::runtime::jobgraph::tasks::StatefulTask {
   // 1.0 `private final Object lock`：算子方法、快照、定时器回调三者互斥
   mutable std::mutex lock_;
 
-  Output* chainEntryPoint_;
-  std::vector<Output*> streamOutputs_;
+  // 1.0 `private OperatorChain<OUT> operatorChain`
+  std::unique_ptr<OperatorChain> operatorChain_;
 
   std::shared_ptr<StreamTaskStateList> lazyRestoreState_;
   int64_t recoveryTimestamp_;

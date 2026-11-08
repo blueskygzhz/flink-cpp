@@ -260,6 +260,10 @@ CMakeFiles/operator_test.dir/test/operator_test.cpp.o
  /data/bingochen/flink-cpp/include/flink/streaming/api/operators/StreamFlatMap.h
  /data/bingochen/flink-cpp/include/flink/api/common/functions/FlatMapFunction.h
  /data/bingochen/flink-cpp/include/flink/streaming/api/operators/TimestampedCollector.h
+ /data/bingochen/flink-cpp/include/flink/streaming/api/operators/StreamGroupedFold.h
+ /data/bingochen/flink-cpp/include/flink/api/common/functions/FoldFunction.h
+ /data/bingochen/flink-cpp/include/flink/streaming/api/operators/StreamGroupedReduce.h
+ /data/bingochen/flink-cpp/include/flink/api/common/functions/ReduceFunction.h
  /data/bingochen/flink-cpp/include/flink/streaming/api/operators/StreamMap.h
  /data/bingochen/flink-cpp/include/flink/api/common/functions/MapFunction.h
 

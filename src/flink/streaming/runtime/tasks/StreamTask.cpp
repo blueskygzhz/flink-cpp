@@ -4,7 +4,6 @@
 #include <chrono>
 #include <stdexcept>
 
-#include "flink/runtime/io/network/api/CheckpointBarrier.h"
 #include "flink/streaming/runtime/tasks/StreamTaskState.h"
 #include "flink/streaming/runtime/tasks/TimerException.h"
 
@@ -26,7 +25,6 @@ StreamTask::StreamTask(Environment* environment,
     : headOperator_(NULL),
       environment_(environment),
       configuration_(configuration),
-      chainEntryPoint_(NULL),
       recoveryTimestamp_(0),
       isRunning_(false),
       canceled_(false),
@@ -39,13 +37,24 @@ std::string StreamTask::getName() const {
                               : std::string("StreamTask");
 }
 
+// 1.0 getHeadOutput(): operatorChain.getChainEntryPoint()
+StreamTask::Output* StreamTask::getHeadOutput() const {
+  return operatorChain_ ? operatorChain_->getChainEntryPoint() : NULL;
+}
+
+// 1.0 getStreamOutputs(): operatorChain.getStreamOutputs()
+const std::vector<StreamTask::RecordWriterOutput*>&
+StreamTask::getStreamOutputs() const {
+  static const std::vector<RecordWriterOutput*> kNone;
+  return operatorChain_ ? operatorChain_->getStreamOutputs() : kNone;
+}
+
+// 1.0 operatorChain.getAllOperators()：链尾在前、headOperator 在最后
 std::vector<StreamTask::StreamOperator*> StreamTask::getAllOperators() const {
-  // 【偏差 1】OperatorChain 到位后这里要返回「链头 + 链上其余算子」
-  std::vector<StreamOperator*> operators;
-  if (headOperator_ != NULL) {
-    operators.push_back(headOperator_);
+  if (!operatorChain_) {
+    return std::vector<StreamOperator*>();
   }
-  return operators;
+  return operatorChain_->getAllOperators();
 }
 
 // 1.0 StreamTask.invoke()（StreamTask.java:175）：结构、锁范围、finally 里的
@@ -54,13 +63,16 @@ void StreamTask::invoke() {
   bool disposed = false;
   try {
     // -------- Initialize ---------
-    // 1.0 这里从配置里取出 headOperator 并建 OperatorChain；本实现的
-    // headOperator 由 configuration.getStreamOperator() 提供（见偏差 1）
+    // 1.0: headOperator = configuration.getStreamOperator(userClassLoader);
+    //      operatorChain = new OperatorChain<>(this, headOperator, reporter);
     if (configuration_.getStreamOperator()) {
       headOperator_ = configuration_.getStreamOperator().get();
     }
+    operatorChain_.reset(new OperatorChain(this, headOperator_));
+
     if (headOperator_ != NULL) {
-      headOperator_->setup(this, &configuration_, chainEntryPoint_);
+      headOperator_->setup(this, &configuration_,
+                           operatorChain_->getChainEntryPoint());
     }
 
     startTimerService();
@@ -147,19 +159,23 @@ void StreamTask::cancel() {
   cancelTask();
 }
 
-// 1.0 openAllOperators()（:311）：从链尾往链头开，这样上游 open 时下游已就绪
+// 1.0 openAllOperators()（:311）：**正序**遍历 allOperators。allOperators 是
+// OperatorChain 从链尾往链头递归建出来的（headOperator 在最后），所以正序
+// 就是「链尾 -> 链头」—— 上游 open 时下游已就绪。
 void StreamTask::openAllOperators() {
   std::vector<StreamOperator*> operators = getAllOperators();
-  for (auto it = operators.rbegin(); it != operators.rend(); ++it) {
-    if (*it != NULL) (*it)->open();
+  for (StreamOperator* op : operators) {
+    if (op != NULL) op->open();
   }
 }
 
-// 1.0 closeAllOperators()（:319）：从链头往链尾关，让数据能一路 flush 出去
+// 1.0 closeAllOperators()（:319）：**倒序**遍历，即「链头 -> 链尾」。
+// 1.0 原注释：「We need to close them first to last, since upstream operators
+// in the chain might emit elements in their close methods.」
 void StreamTask::closeAllOperators() {
   std::vector<StreamOperator*> operators = getAllOperators();
-  for (StreamOperator* op : operators) {
-    if (op != NULL) op->close();
+  for (auto it = operators.rbegin(); it != operators.rend(); ++it) {
+    if (*it != NULL) (*it)->close();
   }
 }
 
@@ -199,16 +215,15 @@ void StreamTask::restoreState() {
   lazyRestoreState_.reset();
 }
 
+// 1.0 invoke() 里的 operatorChain.flushOutputs()（:241）
 void StreamTask::flushOutputs() {
-  // 1.0 operatorChain.flushOutputs() -> RecordWriterOutput.flush()。
-  // 本实现的 Output 还没有缓冲层（RecordWriter 待落地），暂无动作。
+  if (operatorChain_) operatorChain_->flushOutputs();
 }
 
+// 1.0 finally 里的 `if (operatorChain != null) operatorChain.releaseOutputs()`
+// （:276）—— 「this method should never fail」
 void StreamTask::releaseOutputs() {
-  // 1.0 operatorChain.releaseOutputs() -> RecordWriterOutput.close()
-  for (Output* output : streamOutputs_) {
-    if (output != NULL) output->close();
-  }
+  if (operatorChain_) operatorChain_->releaseOutputs();
 }
 
 // 1.0 setInitialState(StreamTaskStateList, long)（:424）
@@ -281,11 +296,8 @@ void StreamTask::notifyCheckpointComplete(int64_t checkpointId) {
 // 1.0 operatorChain.broadcastCheckpointBarrier(checkpointId, timestamp)
 void StreamTask::broadcastCheckpointBarrier(int64_t checkpointId,
                                             int64_t timestamp) {
-  auto barrier =
-      std::make_shared<const flink::runtime::io::network::api::CheckpointBarrier>(
-          checkpointId, timestamp);
-  for (Output* output : streamOutputs_) {
-    if (output != NULL) output->broadcastEvent(barrier);
+  if (operatorChain_) {
+    operatorChain_->broadcastCheckpointBarrier(checkpointId, timestamp);
   }
 }
 

@@ -1,0 +1,1 @@
+/usr/local/bin/c++ -O3 -DNDEBUG CMakeFiles/io_test.dir/test/io_test.cpp.o -o io_test  libflinkcpp.a -lpthread 
