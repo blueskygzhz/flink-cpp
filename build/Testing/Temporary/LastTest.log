@@ -1,0 +1,98 @@
+Start testing: Nov 07 22:58 CST
+----------------------------------------------------------
+1/3 Testing: wordcount
+1/3 Test: wordcount
+Command: "/data/bingochen/flink-cpp/build/wordcount"
+Directory: /data/bingochen/flink-cpp/build
+"wordcount" start time: Nov 07 22:58 CST
+Output:
+----------------------------------------------------------
+hello : 3
+flink : 3
+cpp : 3
+=== PASS (parallelism=1) ===
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"wordcount" end time: Nov 07 22:58 CST
+"wordcount" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/3 Testing: event_time_wordcount
+2/3 Test: event_time_wordcount
+Command: "/data/bingochen/flink-cpp/build/event_time_wordcount"
+Directory: /data/bingochen/flink-cpp/build
+"event_time_wordcount" start time: Nov 07 22:58 CST
+Output:
+----------------------------------------------------------
+# assigner=Tumbling(5000), evictor=none
+A [0,5000) = 2
+A [0,5000) = 1
+A [5000,10000) = 1
+A [10000,15000) = 1
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"event_time_wordcount" end time: Nov 07 22:58 CST
+"event_time_wordcount" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/3 Testing: checkpoint_restore
+3/3 Test: checkpoint_restore
+Command: "/data/bingochen/flink-cpp/build/checkpoint_restore"
+Directory: /data/bingochen/flink-cpp/build
+"checkpoint_restore" start time: Nov 07 22:58 CST
+Output:
+----------------------------------------------------------
+=== Run A: baseline (no failure) ===
+    [source] snapshot ckpt=1 nextOffset=4
+    [source] snapshot ckpt=2 nextOffset=8
+    [source] snapshot ckpt=3 nextOffset=12
+    [coordinator] checkpoint 1 COMPLETED
+    [sink] even=6
+    [sink] odd=9
+    [coordinator] checkpoint 2 COMPLETED
+    [sink] even=24
+    [sink] odd=27
+    [coordinator] checkpoint 3 COMPLETED
+=== Run B1: fail at offset 7 ===
+    [source] snapshot ckpt=1 nextOffset=4
+    [coordinator] checkpoint 1 COMPLETED
+    [sink] even=6
+    [sink] odd=9
+    [job] FAILED: simulated TaskManager failure at offset 7
+    [job] success=false, latest completed ckpt=1
+=== Run B2: restore from ckpt 1 ===
+    [source] RESTORED nextOffset=4
+    [source] snapshot ckpt=2 nextOffset=8
+    [source] snapshot ckpt=3 nextOffset=12
+    [sink] even=6
+    [sink] odd=9
+    [coordinator] checkpoint 2 COMPLETED
+    [sink] even=24
+    [sink] odd=27
+    [coordinator] checkpoint 3 COMPLETED
+=== Verification ===
+  A consumed       : 0,1,2,3,4,5,6,7,8,9,10,11
+  B consumed(sort) : 0,1,2,3,4,4,5,5,6,6,7,8,9,10,11
+  [1] no record lost across failure: PASS
+  [2] replay bounded to [4,7) after last checkpoint: PASS
+  A sink  : even=6 odd=9 even=24 odd=27
+  B1 sink : even=6 odd=9
+  B2 sink : even=6 odd=9 even=24 odd=27
+  [3] restored run output == baseline output: PASS
+  note: B1 在失败前已输出的 "even=6 odd=9" 会被 B2 重放一次。
+        1.0 没有 TwoPhaseCommitSinkFunction（1.4+ 才有），
+        所以端到端 exactly-once 还需要幂等或事务 sink。
+=== ALL CHECKS PASSED ===
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"checkpoint_restore" end time: Nov 07 22:58 CST
+"checkpoint_restore" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 07 22:58 CST

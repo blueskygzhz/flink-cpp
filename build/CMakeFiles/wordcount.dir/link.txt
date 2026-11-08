@@ -1,0 +1,1 @@
+/usr/local/bin/c++ -O3 -DNDEBUG CMakeFiles/wordcount.dir/examples/wordcount.cpp.o -o wordcount  -lpthread 

@@ -1,0 +1,4 @@
+wordcount 4 0.000452662
+event_time_wordcount 4 0.000435043
+checkpoint_restore 4 0.000568235
+---

@@ -1,0 +1,1 @@
+/usr/local/bin/c++ -O3 -DNDEBUG CMakeFiles/checkpoint_restore.dir/examples/checkpoint_restore.cpp.o -o checkpoint_restore  -lpthread 
